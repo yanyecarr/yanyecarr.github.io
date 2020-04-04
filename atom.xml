@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://yanyecarr.github.io/</id>
     <title>carr</title>
-    <updated>2020-04-04T13:52:21.817Z</updated>
+    <updated>2020-04-04T15:15:56.319Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://yanyecarr.github.io/"/>
     <link rel="self" href="https://yanyecarr.github.io//atom.xml"/>
@@ -193,8 +193,8 @@
 <p>此处有练习题</p>
 <p><strong>重点掌握点：</strong></p>
 <ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-5444270"><label class="task-list-item-label" for="task-item-5444270"> 请说出 图像标签那个属性是必须要写的？</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-4660751"><label class="task-list-item-label" for="task-item-4660751"> 请说出 图像标签中 alt 和  title 属性区别？</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-5603376"><label class="task-list-item-label" for="task-item-5603376"> 请说出 图像标签那个属性是必须要写的？</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-3066236"><label class="task-list-item-label" for="task-item-3066236"> 请说出 图像标签中 alt 和  title 属性区别？</label></li>
 </ul>
 <h2 id="15-链接标签重点">1.5 链接标签(重点)</h2>
 <p>单词缩写：  anchor 的缩写  [ˈæŋkə(r)] 。基本解释 锚, 铁锚 的</p>
@@ -229,8 +229,8 @@
 </ol>
 <p><strong>重点掌握点：</strong></p>
 <ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-182375"><label class="task-list-item-label" for="task-item-182375"> 请说出 链接标签那个属性是必须要写的？</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-8697697"><label class="task-list-item-label" for="task-item-8697697"> 请说出 如何新窗口打开这个一个链接网页的？</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-6458836"><label class="task-list-item-label" for="task-item-6458836"> 请说出 链接标签那个属性是必须要写的？</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-2506786"><label class="task-list-item-label" for="task-item-2506786"> 请说出 如何新窗口打开这个一个链接网页的？</label></li>
 </ul>
 <h2 id="16-注释标签">1.6 注释标签</h2>
 <p>在HTML中还有一种特殊的标签——注释标签。如果需要在HTML文档中添加一些便于阅读和理解但又不需要显示在页面中的注释文字，就需要使用注释标签。</p>
@@ -618,16 +618,16 @@ XHTML 是更严格更纯净的 HTML 代码。
 <p>**请问下列哪组标签关系是错误的？ **</p>
 <ul class="contains-task-list">
 <li class="task-list-item">
-<p><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-599006"> <head> </head><body> <label class="task-list-item-label" for="task-item-599006"> <head> </head><body> </body></label></p>
+<p><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-875328"> <head> </head><body> <label class="task-list-item-label" for="task-item-875328"> <head> </head><body> </body></label></p>
 </li>
 <li class="task-list-item">
-<p><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-3645621"> <div> <strong></strong> <label class="task-list-item-label" for="task-item-3645621"> <div> <strong></strong> </div></label></p>
+<p><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-892252"> <div> <strong></strong> <label class="task-list-item-label" for="task-item-892252"> <div> <strong></strong> </div></label></p>
 </li>
 <li class="task-list-item">
-<p><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-2287237"> <head> <title></head> <label class="task-list-item-label" for="task-item-2287237"> <head> <title></head> </title></label></p>
+<p><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-6557627"> <head> <title></head> <label class="task-list-item-label" for="task-item-6557627"> <head> <title></head> </title></label></p>
 </li>
 <li class="task-list-item">
-<p><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-6239088"> <body> <div></div> <label class="task-list-item-label" for="task-item-6239088"> <body> <div></div> </body></label></p>
+<p><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-2072217"> <body> <div></div> <label class="task-list-item-label" for="task-item-2072217"> <body> <div></div> </body></label></p>
 </li>
 </ul>
 <h1 id="2-代码开发工具书写代码">2. 代码开发工具（书写代码）</h1>
