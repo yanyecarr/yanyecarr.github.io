@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://yanyecarr.github.io/</id>
     <title>carr</title>
-    <updated>2020-04-04T11:28:29.770Z</updated>
+    <updated>2020-04-04T11:33:00.384Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://yanyecarr.github.io/"/>
     <link rel="self" href="https://yanyecarr.github.io//atom.xml"/>
@@ -193,8 +193,8 @@
 <p>此处有练习题</p>
 <p><strong>重点掌握点：</strong></p>
 <ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-2092820"><label class="task-list-item-label" for="task-item-2092820"> 请说出 图像标签那个属性是必须要写的？</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-9256128"><label class="task-list-item-label" for="task-item-9256128"> 请说出 图像标签中 alt 和  title 属性区别？</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-3915435"><label class="task-list-item-label" for="task-item-3915435"> 请说出 图像标签那个属性是必须要写的？</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-3301281"><label class="task-list-item-label" for="task-item-3301281"> 请说出 图像标签中 alt 和  title 属性区别？</label></li>
 </ul>
 <h2 id="15-链接标签重点">1.5 链接标签(重点)</h2>
 <p>单词缩写：  anchor 的缩写  [ˈæŋkə(r)] 。基本解释 锚, 铁锚 的</p>
@@ -229,8 +229,8 @@
 </ol>
 <p><strong>重点掌握点：</strong></p>
 <ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-5038965"><label class="task-list-item-label" for="task-item-5038965"> 请说出 链接标签那个属性是必须要写的？</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-3163682"><label class="task-list-item-label" for="task-item-3163682"> 请说出 如何新窗口打开这个一个链接网页的？</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-6035171"><label class="task-list-item-label" for="task-item-6035171"> 请说出 链接标签那个属性是必须要写的？</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-6906122"><label class="task-list-item-label" for="task-item-6906122"> 请说出 如何新窗口打开这个一个链接网页的？</label></li>
 </ul>
 <h2 id="16-注释标签">1.6 注释标签</h2>
 <p>在HTML中还有一种特殊的标签——注释标签。如果需要在HTML文档中添加一些便于阅读和理解但又不需要显示在页面中的注释文字，就需要使用注释标签。</p>
@@ -618,16 +618,16 @@ XHTML 是更严格更纯净的 HTML 代码。
 <p>**请问下列哪组标签关系是错误的？ **</p>
 <ul class="contains-task-list">
 <li class="task-list-item">
-<p><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-528757"> <head> </head><body> <label class="task-list-item-label" for="task-item-528757"> <head> </head><body> </body></label></p>
+<p><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-1126550"> <head> </head><body> <label class="task-list-item-label" for="task-item-1126550"> <head> </head><body> </body></label></p>
 </li>
 <li class="task-list-item">
-<p><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-7739528"> <div> <strong></strong> <label class="task-list-item-label" for="task-item-7739528"> <div> <strong></strong> </div></label></p>
+<p><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-65157"> <div> <strong></strong> <label class="task-list-item-label" for="task-item-65157"> <div> <strong></strong> </div></label></p>
 </li>
 <li class="task-list-item">
-<p><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-9265611"> <head> <title></head> <label class="task-list-item-label" for="task-item-9265611"> <head> <title></head> </title></label></p>
+<p><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-5129447"> <head> <title></head> <label class="task-list-item-label" for="task-item-5129447"> <head> <title></head> </title></label></p>
 </li>
 <li class="task-list-item">
-<p><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-3143667"> <body> <div></div> <label class="task-list-item-label" for="task-item-3143667"> <body> <div></div> </body></label></p>
+<p><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-1678701"> <body> <div></div> <label class="task-list-item-label" for="task-item-1678701"> <body> <div></div> </body></label></p>
 </li>
 </ul>
 <h1 id="2-代码开发工具书写代码">2. 代码开发工具（书写代码）</h1>
@@ -777,7 +777,7 @@ XHTML 是更严格更纯净的 HTML 代码。
         <updated>2020-04-04T11:07:29.000Z</updated>
         <content type="html"><![CDATA[<h1 id="html-第一天目标">HTML 第一天目标</h1>
 <p>能够写出基本的html页面（里面包含图片、链接、文字等网页元素标签）</p>
-<img src="media/a.png" width="1000" />
+<img src="H:/web前端/【27】源码+课件+软件/01-03 前端开发基础/01-HTML资料/02.HTML-Day02/笔记/media/a.png" width="1000" />
 <h1 id="认识web">认识WEB</h1>
 <h2 id="1-认识网页">1. 认识网页</h2>
 <pre><code>网页主要由文字、图像和超链接等元素构成。当然，除了这些元素，网页中还可以包含音频、视频以及Flash等。
@@ -785,20 +785,20 @@ XHTML 是更严格更纯净的 HTML 代码。
 <p>&lt;img src=&quot;media/mi.png&quot;alt=&quot;&quot;&gt;</p>
 <p><strong>思考：</strong></p>
 <p>网页是如何形成的呢?</p>
-<img src="media/web.png" />
+<img src="H:/web前端/【27】源码+课件+软件/01-03 前端开发基础/01-HTML资料/02.HTML-Day02/笔记/media/web.png" />
 <h3 id="总结">总结</h3>
 <p>网页有图片、链接、文字等元素组成，我们后面的任务就是要把这部分网页元素用代码写出来。。。</p>
 <h2 id="2-浏览器显示代码">2. 浏览器（显示代码）</h2>
 <p>平时我们浏览网页，是在浏览器地址栏中输入网页地址，就可以访问我们的页面了。你的浏览器呢？</p>
-<img src="media/add.png" >
+<img src="H:/web前端/【27】源码+课件+软件/01-03 前端开发基础/01-HTML资料/02.HTML-Day02/笔记/media/add.png" >
 <pre><code>浏览器是网页显示、运行的平台，常用的浏览器有IE、火狐（Firefox）、谷歌（Chrome）、Safari和Opera等。我们平时称为五大浏览器。
 </code></pre>
-<img src="media/b.png" />
+<img src="H:/web前端/【27】源码+课件+软件/01-03 前端开发基础/01-HTML资料/02.HTML-Day02/笔记/media/b.png" />
 <p>可能你最熟悉的是 IE浏览器，但是。。。</p>
-<img src="media/liulan.jpg" >
+<img src="H:/web前端/【27】源码+课件+软件/01-03 前端开发基础/01-HTML资料/02.HTML-Day02/笔记/media/liulan.jpg" >
 <h3 id="21-查看浏览器占有的市场份额">2.1 查看浏览器占有的市场份额</h3>
 <p>查看网站： <a href="http://tongji.baidu.com/data/browser" target="_blank">http://tongji.baidu.com/data/browser</a></p>
-<img src="media/count.png" />
+<img src="H:/web前端/【27】源码+课件+软件/01-03 前端开发基础/01-HTML资料/02.HTML-Day02/笔记/media/count.png" />
 <p>2008年，大名鼎鼎的互联网巨头Google公司发布了它的首款浏览器Chrome浏览器。</p>
 <p>跟王思聪一样，没办法，生下来人家就是富二代官二代啊，后台太强，而且确实先天能力得天独厚。</p>
 <p>** 一句话说出他们:**</p>
@@ -874,7 +874,7 @@ iOS以及WP7平台上，由于系统原因，系统大部分自带浏览器内�
 <p>通过以上浏览器的内核不同，我们知道他们渲染或者排版的模式就有些许差异，显示就会有差别。</p>
 <pre><code>问：  哪个方言再全国基本都可以听得懂？ 
 </code></pre>
-<img src="media/bz.png" />
+<img src="H:/web前端/【27】源码+课件+软件/01-03 前端开发基础/01-HTML资料/02.HTML-Day02/笔记/media/bz.png" />
 <h3 id="32-web-标准的好处">3.2 Web 标准的好处</h3>
 <p><em>1</em>、让Web的发展前景更广阔
 <em>2</em>、内容能被更广泛的设备访问
@@ -898,17 +898,17 @@ iOS以及WP7平台上，由于系统原因，系统大部分自带浏览器内�
 </ul>
 <p>理想状态我们的源码： .HTML      .css      .js</p>
 <p>直观感受：</p>
-<img src="media/gx.png" />
+<img src="H:/web前端/【27】源码+课件+软件/01-03 前端开发基础/01-HTML资料/02.HTML-Day02/笔记/media/gx.png" />
 <p>总结WEB标准：</p>
-<p>结构标准：   <img src="media/hb1.png" width="300" />  决定你是否有个好天然身体</p>
+<p>结构标准：   <img src="H:/web前端/【27】源码+课件+软件/01-03 前端开发基础/01-HTML资料/02.HTML-Day02/笔记/media/hb1.png" width="300" />  决定你是否有个好天然身体</p>
 <p><strong>结构层：通过对语义的分析，可以对其划分结构。具有了结构的内容，将更容易阅读</strong></p>
- <img src='media/htmll.jpg' />
-<p>表现标准：   <img src="media/hb2.png" width="300" />  决定你是否打扮的美丽外观</p>
+ <img src="H:/web前端/【27】源码+课件+软件/01-03 前端开发基础/01-HTML资料/02.HTML-Day02/笔记/media/htmll.jpg" />
+<p>表现标准：   <img src="H:/web前端/【27】源码+课件+软件/01-03 前端开发基础/01-HTML资料/02.HTML-Day02/笔记/media/hb2.png" width="300" />  决定你是否打扮的美丽外观</p>
 <p><strong>表现层：是为了让网页就能展现出灵活多样的显示效果</strong></p>
- <img src='media/css.jpg' />
-<p>行为标准：   <img src="media/hb3.jpg"  width="420"   />  决定你是否有吸引人的行为</p>
+ <img src="H:/web前端/【27】源码+课件+软件/01-03 前端开发基础/01-HTML资料/02.HTML-Day02/笔记/media/css.jpg" />
+<p>行为标准：   <img src="H:/web前端/【27】源码+课件+软件/01-03 前端开发基础/01-HTML资料/02.HTML-Day02/笔记/media/hb3.jpg"  width="420"   />  决定你是否有吸引人的行为</p>
 <p><strong>行为层：用户对网页进行操作，网页可以做出响应性的变化。</strong></p>
-  <img src='media/search.gif' />
+  <img src="H:/web前端/【27】源码+课件+软件/01-03 前端开发基础/01-HTML资料/02.HTML-Day02/笔记/media/search.gif" />
 <h3 id="小结">小结</h3>
 <ul>
 <li>web标准有三层结构，分别是结构（html）、表现（css）和行为（javascript）</li>
