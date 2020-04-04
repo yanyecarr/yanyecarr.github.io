@@ -4,7 +4,7 @@
 <meta name="description" content=""/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>Elasticsearch与部署 | carr</title>
-<link rel="shortcut icon" href="https://yanyecarr.github.io//favicon.ico?v=1586001120807">
+<link rel="shortcut icon" href="https://yanyecarr.github.io//favicon.ico?v=1586016801654">
 <link href="https://cdn.bootcss.com/font-awesome/5.11.2/css/all.css" rel="stylesheet">
 <link rel="stylesheet" href="https://yanyecarr.github.io//styles/main.css">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
@@ -83,15 +83,11 @@
                 </h2>
                 <div class="post-info">
                     <time class="post-time gt-c-content-color-first">
-                        · 2020-04-01 ·
+                        · 2020-04-05 ·
                     </time>
                     
                         <a href="https://yanyecarr.github.io//tag/hxUdRlCbb" class="post-tags">
                             # Elasticsearch
-                        </a>
-                    
-                        <a href="https://yanyecarr.github.io//tag/ql4AnHSQ8" class="post-tags">
-                            # Linux
                         </a>
                     
                 </div>
@@ -198,11 +194,12 @@ discovery.zen.ping.unicast.hosts: [&quot;127.0.0.1&quot;,&quot;10.10.10.34:9200&
 <p>​		2、network.host: 0.0.0.0</p>
 <p>修改Elasticsearch的配置，使其支持外网访问。在浏览器中，访问http://xxxx:9200/（xxxx是运行elasticsearch的服务器的ip地址）即可。否则这可以在本机使用。</p>
 <h3 id="2解决报错">2.解决报错</h3>
-<p>1.地址已在使用<img src="C:%5CUsers%5Cwhsw%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1585707253795.png" alt="1585707253795"></p>
+<p>1.地址已在使用</p>
+<p><img src="https://yanyecarr.github.io//post-images/1586016607915.png" alt=""></p>
 <p>解决方法：</p>
 <p>netstat -alnp | grep 9200</p>
-<p><img src="C:%5CUsers%5Cwhsw%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1585707336716.png" alt="1585707336716"></p>
-<p>kill -9 10220</p>
+<p><img src="https://yanyecarr.github.io//post-images/1586016618723.png" alt="">
+kill -9 10220</p>
 <p>2.在<a href="https://www.baidu.com/s?wd=root&amp;tn=24004469_oem_dg&amp;rsv_dl=gh_pl_sl_csd">root</a>用户下启动时报错</p>
 <p>因为安全问题elasticsearch 不让用root用户直接运行，所以要创建新用户。</p>
 <p>具体操作如下:
@@ -212,17 +209,17 @@ discovery.zen.ping.unicast.hosts: [&quot;127.0.0.1&quot;,&quot;10.10.10.34:9200&
 <p>3.[1]: max file descriptors [4096] for elasticsearch process is too low, increase to at least [65535]</p>
 <p>原因：Elasticsearch使用大量文件描述符或文件句柄。用完文件描述符可能是灾难性的，最有可能导致数据丢失。确保将运行Elasticsearch的用户的打开文件描述符数量限制增加到65,536或更高</p>
 <p>vi /etc/security/limits.conf</p>
-<p><img src="C:%5CUsers%5Cwhsw%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1585708247696.png" alt="1585708247696"></p>
-<p>4.[2]: max virtual memory areas vm.max_map_count [65530] is too low, increase to at least [262144]</p>
+<p><img src="https://yanyecarr.github.io//post-images/1586016636768.png" alt="">
+4.[2]: max virtual memory areas vm.max_map_count [65530] is too low, increase to at least [262144]</p>
 <p>vi /etc/sysctl.conf</p>
-<p><img src="C:%5CUsers%5Cwhsw%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1585708272844.png" alt="1585708272844"></p>
+<p><img src="https://yanyecarr.github.io//post-images/1586016433095.png" alt=""></p>
 <p>sysctl -p</p>
 <p>[3]: the default discovery settings are unsuitable for production use; at least one of [discovery.seed_hosts, discovery.seed_providers, cluster.initial_master_nodes] must be configured</p>
 <p>解决</p>
 <p>vi elasticsearch.yml</p>
 <p>取消注释</p>
 <p>cluster.initial_master_nodes: [&quot;node-1&quot;, &quot;node-2&quot;]</p>
-<p><img src="C:%5CUsers%5Cwhsw%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1585708291288.png" alt="1585708291288"></p>
+<p><img src="https://yanyecarr.github.io//post-images/1586016690073.png" alt=""></p>
 <h3 id="3安装分词ik和head">3.安装分词IK和Head</h3>
 <h4 id="安装分词ik">安装分词ik</h4>
 <pre><code>下载地址：https://github.com/medcl/elasticsearch-analysis-ik/releases
@@ -259,7 +256,6 @@ grunt server
 <pre><code>tar -jxvf p7zip_16.02_src_all.tar.bz2
 cd p7zip_16.02
 make &amp;&amp; make install
-
 </code></pre>
 <ul>
 <li>如果执行make命令时，提示安装g++的话，请执行 <code>yum install gcc-c++</code></li>
@@ -281,7 +277,6 @@ installing /usr/local/share/doc/p7zip/README
 installing /usr/local/share/doc/p7zip/ChangeLog
 
 installing HTML help in /usr/local/share/doc/p7zip/DOC
-
 </code></pre>
 <p>7z命令的使用
 解压缩7z文件</p>
@@ -294,7 +289,6 @@ installing HTML help in /usr/local/share/doc/p7zip/DOC
 </ul>
 <p>压缩文件/文件夹</p>
 <pre><code>7za a -t7z -r test.7z /opt/test/*
-
 </code></pre>
 <p>1参数含义：</p>
 <ul>
