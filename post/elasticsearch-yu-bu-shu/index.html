@@ -4,7 +4,7 @@
 <meta name="description" content=""/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>Elasticsearch与部署 | carr</title>
-<link rel="shortcut icon" href="https://yanyecarr.github.io//favicon.ico?v=1586064440537">
+<link rel="shortcut icon" href="https://yanyecarr.github.io//favicon.ico?v=1586064573563">
 <link href="https://cdn.bootcss.com/font-awesome/5.11.2/css/all.css" rel="stylesheet">
 <link rel="stylesheet" href="https://yanyecarr.github.io//styles/main.css">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
@@ -209,10 +209,10 @@ kill -9 10220</p>
 <p>3.[1]: max file descriptors [4096] for elasticsearch process is too low, increase to at least [65535]</p>
 <p>原因：Elasticsearch使用大量文件描述符或文件句柄。用完文件描述符可能是灾难性的，最有可能导致数据丢失。确保将运行Elasticsearch的用户的打开文件描述符数量限制增加到65,536或更高</p>
 <p>vi /etc/security/limits.conf</p>
-<p><img src="https://yanyecarr.github.io//post-images/1586016636768.png" alt="">
+<p><img src="https://yanyecarr.github.io//post-images/1586064563841.png" alt="">
 4.[2]: max virtual memory areas vm.max_map_count [65530] is too low, increase to at least [262144]</p>
 <p>vi /etc/sysctl.conf</p>
-<p><img src="https://yanyecarr.github.io//post-images/1586016433095.png" alt=""></p>
+<p><img src="https://yanyecarr.github.io//post-images/1586064543751.png" alt=""></p>
 <p>sysctl -p</p>
 <p>[3]: the default discovery settings are unsuitable for production use; at least one of [discovery.seed_hosts, discovery.seed_providers, cluster.initial_master_nodes] must be configured</p>
 <p>解决</p>
