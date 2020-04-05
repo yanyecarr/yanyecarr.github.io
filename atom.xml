@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://yanyecarr.github.io/</id>
     <title>carr</title>
-    <updated>2020-04-05T14:12:13.728Z</updated>
+    <updated>2020-04-05T14:37:55.342Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://yanyecarr.github.io/"/>
     <link rel="self" href="https://yanyecarr.github.io//atom.xml"/>
@@ -10,6 +10,1418 @@
     <logo>https://yanyecarr.github.io//images/avatar.png</logo>
     <icon>https://yanyecarr.github.io//favicon.ico</icon>
     <rights>All rights reserved 2020, carr</rights>
+    <entry>
+        <title type="html"><![CDATA[CSS字体样式属性]]></title>
+        <id>https://yanyecarr.github.io//post/css-zi-ti-yang-shi-shu-xing</id>
+        <link href="https://yanyecarr.github.io//post/css-zi-ti-yang-shi-shu-xing">
+        </link>
+        <updated>2020-04-05T14:33:40.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="1font字体">1.font字体</h1>
+<h2 id="11-font-size大小">1.1 font-size:大小</h2>
+<ul>
+<li>
+<p>作用：</p>
+<p>font-size属性用于设置字号</p>
+</li>
+</ul>
+<pre><code class="language-css">p {  
+    font-size:20px; 
+}
+</code></pre>
+<ul>
+<li>单位：
+<ul>
+<li>可以使用相对长度单位，也可以使用绝对长度单位。</li>
+<li>相对长度单位比较常用，推荐使用像素单位px，绝对长度单位使用较少。</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://yanyecarr.github.io//post-images/1586097356121.png" alt=""></p>
+<p><strong>注意：</strong></p>
+<ul>
+<li>我们文字大小以后，基本就用px了，其他单位很少使用</li>
+<li>谷歌浏览器默认的文字大小为16px</li>
+<li>但是不同浏览器可能默认显示的字号大小不一致，我们尽量给一个明确值大小，不要默认大小。一般给body指定整个页面文字的大小</li>
+</ul>
+<h2 id="12-font-family字体">1.2 font-family:字体</h2>
+<ul>
+<li>
+<p>作用：</p>
+<p>font-family属性用于设置哪一种字体。</p>
+</li>
+</ul>
+<pre><code>p{ font-family:&quot;微软雅黑&quot;;}
+</code></pre>
+<ul>
+<li>网页中常用的字体有宋体、微软雅黑、黑体等，例如将网页中所有段落文本的字体设置为微软雅黑</li>
+<li>可以同时指定多个字体，中间以逗号隔开，表示如果浏览器不支持第一个字体，则会尝试下一个，直到找到合适的字体， 如果都没有，则以我们电脑默认的字体为准。</li>
+</ul>
+<pre><code>p{font-family: Arial,&quot;Microsoft Yahei&quot;, &quot;微软雅黑&quot;;}
+</code></pre>
+<blockquote>
+<p><img src="media/good.png" />常用技巧：</p>
+</blockquote>
+<pre><code>1. 各种字体之间必须使用英文状态下的逗号隔开。
+2. 中文字体需要加英文状态下的引号，英文字体一般不需要加引号。当需要设置英文字体时，英文字体名必须位于中文字体名之前。
+3. 如果字体名中包含空格、#、$等符号，则该字体必须加英文状态下的单引号或双引号，例如font-family: &quot;Times New Roman&quot;;。
+4. 尽量使用系统默认字体，保证在任何用户的浏览器中都能正确显示。
+</code></pre>
+<h3 id="css-unicode字体">CSS Unicode字体</h3>
+<p><img src="https://yanyecarr.github.io//post-images/1586097378059.png" alt=""></p>
+<ul>
+<li>
+<p>为什么使用 Unicode字体</p>
+<ul>
+<li>在 CSS 中设置字体名称，直接写中文是可以的。但是在文件编码（GB2312、UTF-8 等）不匹配时会产生乱码的错误。</li>
+<li>xp 系统不支持 类似微软雅黑的中文。</li>
+</ul>
+</li>
+<li>
+<p>解决：</p>
+<ul>
+<li>
+<p>方案一： 你可以使用英文来替代。 比如<code>font-family:&quot;Microsoft Yahei&quot;</code>。</p>
+</li>
+<li>
+<p>方案二： 在 CSS 直接使用 Unicode 编码来写字体名称可以避免这些错误。使用 Unicode 写中文字体名称，浏览器是可以正确的解析的。</p>
+<pre><code>font-family: &quot;\5FAE\8F6F\96C5\9ED1&quot;;   表示设置字体为“微软雅黑”。
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>字体名称</th>
+<th>英文名称</th>
+<th>Unicode 编码</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>宋体</td>
+<td>SimSun</td>
+<td>\5B8B\4F53</td>
+</tr>
+<tr>
+<td>新宋体</td>
+<td>NSimSun</td>
+<td>\65B0\5B8B\4F53</td>
+</tr>
+<tr>
+<td>黑体</td>
+<td>SimHei</td>
+<td>\9ED1\4F53</td>
+</tr>
+<tr>
+<td>微软雅黑</td>
+<td>Microsoft YaHei</td>
+<td>\5FAE\8F6F\96C5\9ED1</td>
+</tr>
+<tr>
+<td>楷体_GB2312</td>
+<td>KaiTi_GB2312</td>
+<td>\6977\4F53_GB2312</td>
+</tr>
+<tr>
+<td>隶书</td>
+<td>LiSu</td>
+<td>\96B6\4E66</td>
+</tr>
+<tr>
+<td>幼园</td>
+<td>YouYuan</td>
+<td>\5E7C\5706</td>
+</tr>
+<tr>
+<td>华文细黑</td>
+<td>STXihei</td>
+<td>\534E\6587\7EC6\9ED1</td>
+</tr>
+<tr>
+<td>细明体</td>
+<td>MingLiU</td>
+<td>\7EC6\660E\4F53</td>
+</tr>
+<tr>
+<td>新细明体</td>
+<td>PMingLiU</td>
+<td>\65B0\7EC6\660E\4F53</td>
+</tr>
+</tbody>
+</table>
+<p>为了照顾不同电脑的字体安装问题，我们尽量只使用宋体和微软雅黑中文字体</p>
+<h2 id="13-font-weight字体粗细">1.3 font-weight:字体粗细</h2>
+<ul>
+<li>在html中如何将字体加粗我们可以用标签来实现
+<ul>
+<li>使用 b  和 strong 标签是文本加粗。</li>
+</ul>
+</li>
+<li>可以使用CSS 来实现，但是CSS 是没有语义的。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>属性值</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>normal</td>
+<td style="text-align:left">默认值（不加粗的）</td>
+</tr>
+<tr>
+<td>bold</td>
+<td style="text-align:left">定义粗体（加粗的）</td>
+</tr>
+<tr>
+<td>100~900</td>
+<td style="text-align:left">400 等同于 normal，而 700 等同于 bold  我们重点记住这句话</td>
+</tr>
+</tbody>
+</table>
+<p>提倡：</p>
+<p>我们平时更喜欢用数字来表示加粗和不加粗。</p>
+<h2 id="14-font-style字体风格">1.4 font-style:字体风格</h2>
+<ul>
+<li>在html中如何将字体倾斜我们可以用标签来实现
+<ul>
+<li>字体倾斜除了用 i  和 em 标签，</li>
+</ul>
+</li>
+<li>可以使用CSS 来实现，但是CSS 是没有语义的</li>
+</ul>
+<p>font-style属性用于定义字体风格，如设置斜体、倾斜或正常字体，其可用属性值如下：</p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th style="text-align:left">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>normal</td>
+<td style="text-align:left">默认值，浏览器会显示标准的字体样式  font-style: normal;</td>
+</tr>
+<tr>
+<td>italic</td>
+<td style="text-align:left">浏览器会显示斜体的字体样式。</td>
+</tr>
+</tbody>
+</table>
+<p><img src="media/good.png" />小技巧：</p>
+<pre><code>平时我们很少给文字加斜体，反而喜欢给斜体标签（em，i）改为普通模式。
+</code></pre>
+<h2 id="15-font综合设置字体样式-重点">1.5 font:综合设置字体样式 (重点)</h2>
+<p>font属性用于对字体样式进行综合设置</p>
+<ul>
+<li>基本语法格式如下：</li>
+</ul>
+<pre><code class="language-css">选择器 { font: font-style  font-weight  font-size/line-height  font-family;}
+</code></pre>
+<ul>
+<li>注意：
+<ul>
+<li>使用font属性时，必须按上面语法格式中的顺序书写，不能更换顺序，各个属性以<strong>空格</strong>隔开。</li>
+<li>其中不需要设置的属性可以省略（取默认值），但必须保留font-size和font-family属性，否则font属性将不起作用。</li>
+</ul>
+</li>
+</ul>
+<h2 id="16-font总结">1.6 font总结</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">属性</th>
+<th style="text-align:left">表示</th>
+<th style="text-align:left">注意点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">font-size</td>
+<td style="text-align:left">字号</td>
+<td style="text-align:left">我们通常用的单位是px 像素，一定要跟上单位</td>
+</tr>
+<tr>
+<td style="text-align:left">font-family</td>
+<td style="text-align:left">字体</td>
+<td style="text-align:left">实际工作中按照团队约定来写字体</td>
+</tr>
+<tr>
+<td style="text-align:left">font-weight</td>
+<td style="text-align:left">字体粗细</td>
+<td style="text-align:left">记住加粗是 700 或者 bold  不加粗 是 normal 或者  400  记住数字不要跟单位</td>
+</tr>
+<tr>
+<td style="text-align:left">font-style</td>
+<td style="text-align:left">字体样式</td>
+<td style="text-align:left">记住倾斜是 italic     不倾斜 是 normal  工作中我们最常用 normal</td>
+</tr>
+<tr>
+<td style="text-align:left">font</td>
+<td style="text-align:left">字体连写</td>
+<td style="text-align:left">1. 字体连写是有顺序的  不能随意换位置 2. 其中字号 和 字体 必须同时出现</td>
+</tr>
+</tbody>
+</table>
+<h1 id="2-css外观属性">2. CSS外观属性</h1>
+<h2 id="21-color文本颜色">2.1 color:文本颜色</h2>
+<ul>
+<li>
+<p>作用：</p>
+<p>color属性用于定义文本的颜色，</p>
+</li>
+<li>
+<p>其取值方式有如下3种：</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">表示表示</th>
+<th style="text-align:left">属性值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">预定义的颜色值</td>
+<td style="text-align:left">red，green，blue，还有我们的御用色 pink</td>
+</tr>
+<tr>
+<td style="text-align:left">十六进制</td>
+<td style="text-align:left">#FF0000，#FF6600，#29D794</td>
+</tr>
+<tr>
+<td style="text-align:left">RGB代码</td>
+<td style="text-align:left">rgb(255,0,0)或rgb(100%,0%,0%)</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>
+<p>注意</p>
+<p>我们实际工作中， 用 16进制的写法是最多的，而且我们更喜欢简写方式比如  #f00 代表红色</p>
+</li>
+</ul>
+<h2 id="22-text-align文本水平对齐方式">2.2 text-align:文本水平对齐方式</h2>
+<ul>
+<li>
+<p>作用：</p>
+<p>text-align属性用于设置文本内容的水平对齐，相当于html中的align对齐属性</p>
+</li>
+<li>
+<p>其可用属性值如下：</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th style="text-align:center">解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>left</td>
+<td style="text-align:center">左对齐（默认值）</td>
+</tr>
+<tr>
+<td>right</td>
+<td style="text-align:center">右对齐</td>
+</tr>
+<tr>
+<td>center</td>
+<td style="text-align:center">居中对齐</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>
+<p>注意：</p>
+<p>是让盒子里面的内容水平居中， 而不是让盒子居中对齐</p>
+</li>
+</ul>
+<h2 id="23-line-height行间距">2.3 line-height:行间距</h2>
+<ul>
+<li>
+<p>作用：</p>
+<p>line-height属性用于设置行间距，就是行与行之间的距离，即字符的垂直间距，一般称为行高。</p>
+</li>
+<li>
+<p>单位：</p>
+<ul>
+<li>line-height常用的属性值单位有三种，分别为像素px，相对值em和百分比%，实际工作中使用最多的是像素px</li>
+</ul>
+</li>
+<li>
+<p>技巧：</p>
+</li>
+</ul>
+<pre><code>一般情况下，行距比字号大7.8像素左右就可以了。
+line-height: 24px;
+</code></pre>
+<h2 id="24-text-indent首行缩进">2.4 text-indent:首行缩进</h2>
+<ul>
+<li>
+<p>作用：</p>
+<p>text-indent属性用于设置首行文本的缩进，</p>
+</li>
+<li>
+<p>属性值</p>
+<ul>
+<li>其属性值可为不同单位的数值、em字符宽度的倍数、或相对于浏览器窗口宽度的百分比%，允许使用负值,</li>
+<li>建议使用em作为设置单位。</li>
+</ul>
+</li>
+</ul>
+<p><strong>1em 就是一个字的宽度   如果是汉字的段落， 1em 就是一个汉字的宽度</strong></p>
+<pre><code class="language-css">p {
+      /*行间距*/
+      line-height: 25px;
+      /*首行缩进2个字  em  1个em 就是1个字的大小*/
+      text-indent: 2em;  
+ }
+</code></pre>
+<h2 id="25-text-decoration-文本的装饰">2.5 text-decoration 文本的装饰</h2>
+<p>text-decoration   通常我们用于给链接修改装饰效果</p>
+<table>
+<thead>
+<tr>
+<th>值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>none</td>
+<td>默认。定义标准的文本。 取消下划线（最常用）</td>
+</tr>
+<tr>
+<td>underline</td>
+<td>定义文本下的一条线。下划线 也是我们链接自带的（常用）</td>
+</tr>
+<tr>
+<td>overline</td>
+<td>定义文本上的一条线。（不用）</td>
+</tr>
+<tr>
+<td>line-through</td>
+<td>定义穿过文本下的一条线。（不常用）</td>
+</tr>
+</tbody>
+</table>
+<h2 id="26-css外观属性总结">2.6 CSS外观属性总结</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">属性</th>
+<th style="text-align:left">表示</th>
+<th style="text-align:left">注意点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">color</td>
+<td style="text-align:left">颜色</td>
+<td style="text-align:left">我们通常用  十六进制   比如 而且是简写形式 #fff</td>
+</tr>
+<tr>
+<td style="text-align:left">line-height</td>
+<td style="text-align:left">行高</td>
+<td style="text-align:left">控制行与行之间的距离</td>
+</tr>
+<tr>
+<td style="text-align:left">text-align</td>
+<td style="text-align:left">水平对齐</td>
+<td style="text-align:left">可以设定文字水平的对齐方式</td>
+</tr>
+<tr>
+<td style="text-align:left">text-indent</td>
+<td style="text-align:left">首行缩进</td>
+<td style="text-align:left">通常我们用于段落首行缩进2个字的距离   text-indent: 2em;</td>
+</tr>
+<tr>
+<td style="text-align:left">text-decoration</td>
+<td style="text-align:left">文本修饰</td>
+<td style="text-align:left">记住 添加 下划线  underline  取消下划线  none</td>
+</tr>
+</tbody>
+</table>
+<h1 id="3开发者工具chrome">3.开发者工具（chrome）</h1>
+<p><strong>此工具是我们的必备工具，以后代码出了问题</strong></p>
+<p><strong>我们首先第一反应就是：</strong></p>
+<ul>
+<li>“按F12”或者是 “shift+ctrl+i”   打开 开发者工具。</li>
+<li>菜单：   右击网页空白出---检查</li>
+</ul>
+<p><img src="https://yanyecarr.github.io//post-images/1586097445045.png" alt=""></p>
+<ul>
+<li>通过开发人员工具小指针工具，查找页面元素</li>
+<li>左侧是html页面结构，右侧是css样式</li>
+</ul>
+<p><img src="media/good.png" />小技巧：</p>
+<ol>
+<li>ctrl+滚轮 可以 放大开发者工具代码大小。</li>
+<li>左边是HTML元素结构   右边是CSS样式。</li>
+<li>右边CSS样式可以改动数值和颜色查看更改后效果。</li>
+<li>ctrl + 0  复原浏览器大小</li>
+</ol>
+<h1 id="4-sublime快捷操作emmet语法">4. sublime快捷操作emmet语法</h1>
+<p>Emmet的前身是Zen coding,它使用缩写,来提高html/css的编写速度。</p>
+<ol>
+<li>
+<p>生成标签 直接输入标签名 按tab键即可   比如  div   然后tab 键， 就可以生成 <div></div></p>
+</li>
+<li>
+<p>如果想要生成多个相同标签  加上 * 就可以了 比如   div*3  就可以快速生成3个div</p>
+</li>
+<li>
+<p>如果有父子级关系的标签，可以用 &gt;  比如   ul &gt; li就可以了</p>
+</li>
+<li>
+<p>如果有兄弟关系的标签，用  +  就可以了 比如 div+p</p>
+</li>
+<li>
+<p>如果生成带有类名或者id名字的，  直接写  .demo  或者  #two   tab 键就可以了</p>
+</li>
+<li>
+<p>如果生成的div 类名是有顺序的， 可以用 自增符号  $</p>
+<pre><code>.demo$*3        
+&lt;div class=&quot;demo1&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;demo2&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;demo3&quot;&gt;&lt;/div&gt;
+</code></pre>
+</li>
+</ol>
+<p>命名规则：</p>
+<pre><code>[emment语法](https://www.w3cplus.com/tools/emmet-cheat-sheet.html)
+
+头：header 
+  内容：content/container
+  尾：footer
+  导航：nav
+  侧栏：sidebar
+  栏目：column
+  页面外围控制整体布局宽度：wrapper
+  左右中：left right center
+  登录条：loginbar
+  标志：logo
+  广告：banner
+  页面主体：main
+  热点：hot
+  新闻：news
+  下载：download
+  子导航：subnav
+  菜单：menu
+  子菜单：submenu
+  搜索：search
+  友情链接：friendlink
+  页脚：footer
+  版权：copyright
+  滚动：scroll
+  内容：content
+  标签页：tab
+  文章列表：list
+  提示信息：msg
+  小技巧：tips
+  栏目标题：title
+  加入：joinus
+  指南：guild
+  服务：service
+  注册：regsiter
+  状态：status
+  投票：vote
+  合作伙伴：partner
+(二)注释的写法:
+  /* Footer */
+  内容区
+  /* End Footer */
+(三)id的命名:
+  (1)页面结构
+  容器: container
+  页头：header
+  内容：content/container
+  页面主体：main
+  页尾：footer
+  导航：nav
+  侧栏：sidebar
+  栏目：column
+  页面外围控制整体布局宽度：wrapper
+  左右中：left right center
+
+  (2)导航
+  导航：nav
+  主导航：mainbav
+  子导航：subnav
+  顶导航：topnav
+  边导航：sidebar
+  左导航：leftsidebar
+  右导航：rightsidebar
+  菜单：menu
+  子菜单：submenu
+  标题: title
+  摘要: summary
+
+  (3)功能
+  标志：logo
+  广告：banner
+  登陆：login
+  登录条：loginbar
+  注册：regsiter
+  搜索：search
+  功能区：shop
+  标题：title
+  加入：joinus
+  状态：status
+  按钮：btn
+  滚动：scroll
+  标签页：tab
+  文章列表：list
+  提示信息：msg
+  当前的: current
+  小技巧：tips
+  图标: icon
+  注释：note
+  指南：guild
+  服务：service
+  热点：hot
+  新闻：news
+  下载：download
+  投票：vote
+  合作伙伴：partner
+</code></pre>
+<pre><code>``
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Html列表标签]]></title>
+        <id>https://yanyecarr.github.io//post/html-lie-biao-biao-qian</id>
+        <link href="https://yanyecarr.github.io//post/html-lie-biao-biao-qian">
+        </link>
+        <updated>2020-04-05T14:26:37.000Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li>
+<p>概念：</p>
+<p>容器里面装载着结构，样式一致的文字或图表的一种形式，叫列表</p>
+</li>
+<li>
+<p>特点：</p>
+<p>列表最大的特点就是  整齐 、整洁、 有序，跟表格类似，但是他可组合自由度会更高。</p>
+</li>
+</ul>
+<h2 id="11-无序列表-ul-重点">1.1 无序列表 ul （重点）</h2>
+<p>无序列表的各个列表项之间没有顺序级别之分，是并列的。其基本语法格式如下：</p>
+<pre><code class="language-html">&lt;ul&gt;
+  &lt;li&gt;列表项1&lt;/li&gt;
+  &lt;li&gt;列表项2&lt;/li&gt;
+  &lt;li&gt;列表项3&lt;/li&gt;
+  ......
+&lt;/ul&gt;
+</code></pre>
+<p>比如下面这些，新闻是没有顺序的，不用排队，先到先得，后发布先显示。</p>
+<p><img src="https://yanyecarr.github.io//post-images/1586096912622.png" alt=""></p>
+<p><strong>脚下留心：</strong></p>
+<pre><code> 1. &lt;ul&gt;&lt;/ul&gt;中只能嵌套&lt;li&gt;&lt;/li&gt;，直接在&lt;ul&gt;&lt;/ul&gt;标签中输入其他标签或者文字的做法是不被允许的。
+ 2. &lt;li&gt;与&lt;/li&gt;之间相当于一个容器，可以容纳所有元素。
+ 3. 无序列表会带有自己样式属性，放下那个样式，一会让CSS来！
+</code></pre>
+<h2 id="12-有序列表-ol-了解">1.2  有序列表 ol （了解）</h2>
+<p><img src="https://yanyecarr.github.io//post-images/1586096922740.png" alt=""></p>
+<p>有序列表即为有排列顺序的列表，其各个列表项按照一定的顺序排列定义，有序列表的基本语法格式如下：</p>
+<pre><code class="language-html">&lt;ol&gt;
+  &lt;li&gt;列表项1&lt;/li&gt;
+  &lt;li&gt;列表项2&lt;/li&gt;
+  &lt;li&gt;列表项3&lt;/li&gt;
+  ......
+&lt;/ol&gt;
+</code></pre>
+<p>所有特性基本与ul 一致。  但是实际中比 无序列表 用的少很多。</p>
+<h2 id="13-自定义列表理解">1.3 自定义列表（理解）</h2>
+<p>定义列表常用于对术语或名词进行解释和描述，定义列表的列表项前没有任何项目符号。其基本语法如下：</p>
+<pre><code class="language-html">&lt;dl&gt;
+  &lt;dt&gt;名词1&lt;/dt&gt;
+  &lt;dd&gt;名词1解释1&lt;/dd&gt;
+  &lt;dd&gt;名词1解释2&lt;/dd&gt;
+  ...
+  &lt;dt&gt;名词2&lt;/dt&gt;
+  &lt;dd&gt;名词2解释1&lt;/dd&gt;
+  &lt;dd&gt;名词2解释2&lt;/dd&gt;
+  ...
+&lt;/dl&gt;
+</code></pre>
+<p><img src="https://yanyecarr.github.io//post-images/1586096948342.png" alt="">
+用的还可以：</p>
+<h2 id="14-列表总结">1.4 列表总结</h2>
+<table>
+<thead>
+<tr>
+<th>标签名</th>
+<th style="text-align:center">定义</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><ul></ul></td>
+<td style="text-align:center"><strong>无序标签</strong></td>
+<td style="text-align:left">里面只能包含li    没有顺序，我们以后布局中最常用的列表</td>
+</tr>
+<tr>
+<td><ol></ol></td>
+<td style="text-align:center">有序标签</td>
+<td style="text-align:left">里面只能包含li    有顺序， 使用情况较少</td>
+</tr>
+<tr>
+<td><dl></dl></td>
+<td style="text-align:center">自定义列表</td>
+<td style="text-align:left">里面有2个兄弟， dt 和 dd</td>
+</tr>
+</tbody>
+</table>
+<p>我们现在还没有学布局，现在只要保证2个点：</p>
+<ol>
+<li>学会什么时候用无序列表， 学会什么时候用自定义列表</li>
+<li>无序列表和自定义列表代码怎么写？</li>
+<li>具体的我们刚才看的布局，等我们学了css 在来全面布局。</li>
+</ol>
+<h1 id="2-表单标签掌握">2. 表单标签(掌握)</h1>
+<p>目标：</p>
+<ul>
+<li>能写出最常用的注册类表单</li>
+<li>能说出input表单常见属性</li>
+</ul>
+<p>现实中的表单，类似我们去银行办理信用卡填写的单子。 如下图</p>
+<p><img src="https://yanyecarr.github.io//post-images/1586096963289.png" alt=""></p>
+<p>**作用： **</p>
+<p>表单目的是为了收集用户信息。</p>
+<p>在我们网页中， 我们也需要跟用户进行交互，收集用户资料，此时也需要表单。</p>
+<blockquote>
+<p>在HTML中，一个完整的表单通常由表单控件（也称为表单元素）、提示信息和表单域3个部分构成。</p>
+</blockquote>
+<p><img src="https://yanyecarr.github.io//post-images/1586096976650.png" alt=""></p>
+<p>**表单控件： **</p>
+<p>​       包含了具体的表单功能项，如单行文本输入框、密码输入框、复选框、提交按钮、重置按钮等。</p>
+<p><strong>提示信息：</strong></p>
+<p>​        一个表单中通常还需要包含一些说明性的文字，提示用户进行填写和操作。</p>
+<p><strong>表单域：</strong></p>
+<p>​      他相当于一个容器，用来容纳所有的表单控件和提示信息，可以通过他定义处理表单数据所用程序的url地址，以及数据提交到服务器的方法。如果不定义表单域，表单中的数据就无法传送到后台服务器。</p>
+<h2 id="21-input-控件重点">2.1 input 控件(重点)</h2>
+<ul>
+<li>
+<p>语法：</p>
+<pre><code class="language-html">&lt;input type=&quot;属性值&quot; value=&quot;你好&quot;&gt;
+</code></pre>
+<ul>
+<li>input 输入的意思</li>
+<li>&lt;input /&gt;标签为单标签</li>
+<li>type属性设置不同的属性值用来指定不同的控件类型</li>
+<li>除了type属性还有别的属性</li>
+</ul>
+</li>
+<li>
+<p>常用属性：</p>
+</li>
+</ul>
+<p><img src="https://yanyecarr.github.io//post-images/1586097006397.png" alt=""></p>
+<h4 id="1-type-属性">1. type 属性</h4>
+<ul>
+<li>这个属性通过改变值，可以决定了你属于那种input表单。</li>
+<li>比如 type = 'text'  就表示 文本框 可以做 用户名， 昵称等。</li>
+<li>比如 type = 'password'  就是表示密码框   用户输入的内容 是不可见的。</li>
+</ul>
+<pre><code class="language-html">用户名: &lt;input type=&quot;text&quot; /&gt; 
+密  码：&lt;input type=&quot;password&quot; /&gt;
+</code></pre>
+<h4 id="2-value属性-值">2. value属性   值</h4>
+<pre><code class="language-html">用户名:&lt;input type=&quot;text&quot;  name=&quot;username&quot; value=&quot;请输入用户名&quot;&gt; 
+</code></pre>
+<ul>
+<li>value 默认的文本值。 有些表单想刚打开页面就默认显示几个文字，就可以通过这个value 来设置。</li>
+</ul>
+<h4 id="3-name属性">3. name属性</h4>
+<pre><code class="language-html">用户名:&lt;input type=&quot;text&quot;  name=“username” /&gt;  
+</code></pre>
+<p>name表单的名字， 这样，后台可以通过这个name属性找到这个表单。  页面中的表单很多，name主要作用就是用于区别不同的表单。</p>
+<ul>
+<li>
+<p>name属性后面的值，是我们自己定义的。</p>
+</li>
+<li>
+<p>radio  如果是一组，我们必须给他们命名相同的名字 name   这样就可以多个选其中的一个啦</p>
+</li>
+</ul>
+<pre><code class="language-html">&lt;input type=&quot;radio&quot; name=&quot;sex&quot;  /&gt;男
+&lt;input type=&quot;radio&quot; name=&quot;sex&quot; /&gt;女
+</code></pre>
+<ul>
+<li>name属性，我们现在用的较少， 但是，当我们学ajax 和后台的时候，是必须的。</li>
+</ul>
+<h4 id="4-checked属性">4. checked属性</h4>
+<ul>
+<li>表示默认选中状态。  较常见于 单选按钮和复选按钮。</li>
+</ul>
+<pre><code class="language-html">性    别:
+&lt;input type=&quot;radio&quot; name=&quot;sex&quot; value=&quot;男&quot; checked=&quot;checked&quot; /&gt;男
+&lt;input type=&quot;radio&quot; name=&quot;sex&quot; value=&quot;女&quot; /&gt;女 
+</code></pre>
+<p>上面这个，表示就默认选中了 男 这个单选按钮</p>
+<h4 id="5-input-属性小结">5. input 属性小结</h4>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th style="text-align:left">说明</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td style="text-align:left">表单类型</td>
+<td>用来指定不同的控件类型</td>
+</tr>
+<tr>
+<td>value</td>
+<td style="text-align:left">表单值</td>
+<td>表单里面默认显示的文本</td>
+</tr>
+<tr>
+<td>name</td>
+<td style="text-align:left">表单名字</td>
+<td>页面中的表单很多，name主要作用就是用于区别不同的表单。</td>
+</tr>
+<tr>
+<td>checked</td>
+<td style="text-align:left">默认选中</td>
+<td>表示那个单选或者复选按钮一开始就被选中了</td>
+</tr>
+</tbody>
+</table>
+<h2 id="22-label标签理解">2.2 label标签(理解)</h2>
+<p><strong>目标：</strong></p>
+<p>label标签主要目的是为了提高用户体验。 为用户提高最优秀的服务。</p>
+<p><strong>概念：</strong></p>
+<p>label 标签为 input 元素定义标注（标签）。</p>
+<p><strong>作用：</strong></p>
+<p>用于绑定一个表单元素, 当点击label标签的时候, 被绑定的表单元素就会获得输入焦点。</p>
+<p><strong>如何绑定元素呢？</strong></p>
+<ol>
+<li>第一种用法就是用label直接包括input表单。</li>
+</ol>
+<pre><code class="language-html">&lt;label&gt; 用户名： &lt;input type=&quot;radio&quot; name=&quot;usename&quot; value=&quot;请输入用户名&quot;&gt;   &lt;/label&gt;
+</code></pre>
+<p>适合单个表单选择</p>
+<ol start="2">
+<li>第二种用法 for 属性规定 label 与哪个表单元素绑定。</li>
+</ol>
+<pre><code class="language-html">&lt;label for=&quot;sex&quot;&gt;男&lt;/label&gt;
+&lt;input type=&quot;radio&quot; name=&quot;sex&quot;  id=&quot;sex&quot;&gt;
+</code></pre>
+<blockquote>
+<p>当我们鼠标点击 label标签里面的文字时， 光标会定位到指定的表单里面</p>
+</blockquote>
+<h2 id="23-textarea控件文本域">2.3 textarea控件(文本域)</h2>
+<p><img src="https://yanyecarr.github.io//post-images/1586097028587.png" alt=""></p>
+<ul>
+<li>语法：</li>
+</ul>
+<pre><code class="language-html">&lt;textarea &gt;
+  文本内容
+&lt;/textarea&gt;
+</code></pre>
+<ul>
+<li>
+<p>作用：</p>
+<p>通过textarea控件可以轻松地创建多行文本输入框.</p>
+<p>cols=&quot;每行中的字符数&quot; rows=&quot;显示的行数&quot;  我们实际开发不用</p>
+</li>
+</ul>
+<h4 id="文本框和文本域区别">文本框和文本域区别</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">表单</th>
+<th style="text-align:center">名称</th>
+<th style="text-align:center">区别</th>
+<th style="text-align:right">默认值显示</th>
+<th style="text-align:right">用于场景</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">input type=&quot;text&quot;</td>
+<td style="text-align:center">文本框</td>
+<td style="text-align:center">只能显示一行文本</td>
+<td style="text-align:right">单标签，通过value显示默认值</td>
+<td style="text-align:right">用户名、昵称、密码等</td>
+</tr>
+<tr>
+<td style="text-align:left">textarea</td>
+<td style="text-align:center">文本域</td>
+<td style="text-align:center">可以显示多行文本</td>
+<td style="text-align:right">双标签，默认值写到标签中间</td>
+<td style="text-align:right">留言板</td>
+</tr>
+</tbody>
+</table>
+<h2 id="24-select下拉列表">2.4 select下拉列表</h2>
+<p><strong>目的：</strong></p>
+<p>如果有多个选项让用户选择，为了节约空间，我们可以使用select控件定义下拉列表.</p>
+<p><img src="https://yanyecarr.github.io//post-images/1586097041369.png" alt=""></p>
+<p><strong>语法：</strong></p>
+<pre><code class="language-html">&lt;select&gt;
+  &lt;option&gt;选项1&lt;/option&gt;
+  &lt;option&gt;选项2&lt;/option&gt;
+  &lt;option&gt;选项3&lt;/option&gt;
+  ...
+&lt;/select&gt;
+</code></pre>
+<ul>
+<li>注意：</li>
+</ul>
+<ol>
+<li>&lt;select&gt;  中至少包含一对 option</li>
+<li>在option 中定义selected =&quot; selected &quot;时，当前项即为默认选中项。</li>
+<li>但是我们实际开发会用的比较少</li>
+</ol>
+<h1 id="3-form表单域">3. form表单域</h1>
+<ul>
+<li>
+<p>收集的用户信息怎么传递给服务器？</p>
+<p>通过form表单域</p>
+</li>
+<li>
+<p>目的：</p>
+<p>在HTML中，form标签被用于定义表单域，以实现用户信息的收集和传递，form中的所有内容都会被提交给服务器。</p>
+</li>
+</ul>
+<p>**语法: **</p>
+<pre><code class="language-html">&lt;form action=&quot;url地址&quot; method=&quot;提交方式&quot; name=&quot;表单名称&quot;&gt;
+  各种表单控件
+&lt;/form&gt;
+</code></pre>
+<p><strong>常用属性：</strong></p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th style="text-align:left">属性值</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>action</td>
+<td style="text-align:left">url地址</td>
+<td>用于指定接收并处理表单数据的服务器程序的url地址。</td>
+</tr>
+<tr>
+<td>method</td>
+<td style="text-align:left">get/post</td>
+<td>用于设置表单数据的提交方式，其取值为get或post。</td>
+</tr>
+<tr>
+<td>name</td>
+<td style="text-align:left">名称</td>
+<td>用于指定表单的名称，以区分同一个页面中的多个表单。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>注意:</strong></p>
+<p>每个表单都应该有自己表单域。我们现在做页面，不写看不到效果，但是 如果后面学 ajax 后台交互的时候，必须需要 form表单域。</p>
+<h2 id="26-团队约定">2.6 团队约定</h2>
+<h3 id="元素属性">元素属性</h3>
+<ul>
+<li>元素属性值使用双引号语法</li>
+<li>元素属性值可以写上的都写上</li>
+</ul>
+<p><em>推荐：</em></p>
+<pre><code class="language-html">&lt;input type=&quot;text&quot; /&gt;	
+&lt;input type=&quot;radio&quot; name=&quot;name&quot; checked=&quot;checked&quot; /&gt;
+</code></pre>
+<p><em>不推荐：</em></p>
+<pre><code class="language-html">&lt;input type=text  /&gt;	
+&lt;input type='text' /&gt;	
+&lt;input type=&quot;radio&quot; name=&quot;name&quot; checked /&gt;
+</code></pre>
+<h1 id="4综合案例注册页面">4.综合案例（注册页面）</h1>
+<p><img src="https://yanyecarr.github.io//post-images/1586097054867.png" alt=""></p>
+<h1 id="5-查文档">5. 查文档</h1>
+<p>经常查阅文档是一个非常好的学习习惯。</p>
+<p>W3C :  http://www.w3school.com.cn/</p>
+<p>MDN: https://developer.mozilla.org/zh-CN/</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Html表格table]]></title>
+        <id>https://yanyecarr.github.io//post/html-biao-ge-table</id>
+        <link href="https://yanyecarr.github.io//post/html-biao-ge-table">
+        </link>
+        <updated>2020-04-05T14:22:27.000Z</updated>
+        <content type="html"><![CDATA[<p><strong>表格作用：</strong></p>
+<p>存在即是合理的。  表格的现在还是较为常用的一种标签，但不是用来布局，<strong>常见显示、展示表格式数据。</strong></p>
+<p>因为它可以让数据显示的非常的规整，可读性非常好。</p>
+<p><strong>特别是后台展示数据的时候表格运用是否熟练就显得很重要</strong>，一个清爽简约的表格能够把繁杂的数据表现得很有条理，虽然 div 布局也可以做到，但是总没有表格来得方便。</p>
+<p><img src="https://yanyecarr.github.io//post-images/1586096620772.png" alt="">
+ps:  这些地方用表格，你会觉得生活还是那么美好。。。。忍不住想说  PPAP i hava a pen</p>
+<h2 id="1-创建表格">1. 创建表格</h2>
+<p>在HTML网页中，要想创建表格，就需要使用表格相关的标签。</p>
+<p><strong>创建表格的基本语法：</strong></p>
+<pre><code class="language-html">&lt;table&gt;
+  &lt;tr&gt;
+    &lt;td&gt;单元格内的文字&lt;/td&gt;
+    ...
+  &lt;/tr&gt;
+  ...
+&lt;/table&gt;
+</code></pre>
+<p>要深刻体会表格、行、单元格他们的构成。</p>
+<p>在上面的语法中包含基本的三对HTML标签，分别为 table、tr、td，他们是创建表格的基本标签，缺一不可，下面对他们进行具体地解释</p>
+<ol>
+<li>
+<p>table用于定义一个表格标签。</p>
+</li>
+<li>
+<p>tr标签 用于定义表格中的行，必须嵌套在 table标签中。</p>
+</li>
+<li>
+<p>td 用于定义表格中的单元格，必须嵌套在<tr></tr>标签中。</p>
+</li>
+<li>
+<p>字母 td 指表格数据（table data），即数据单元格的内容，现在我们明白，表格最合适的地方就是用来存储数据的。</p>
+</li>
+</ol>
+<p><img src="https://yanyecarr.github.io//post-images/1586096639647.png" alt=""></p>
+<p>**总结： **</p>
+<ul>
+<li>
+<p>表格的主要目的是用来显示特殊数据的</p>
+</li>
+<li>
+<p>一个完整的表格有表格标签（table），行标签（tr），单元格标签（td）组成，没有列的标签</p>
+</li>
+<li>
+<tr></tr>中只能嵌套<td></td> 类的单元格
+</li>
+<li>
+<td></td>标签，他就像一个容器，可以容纳所有的元素
+</li>
+</ul>
+<h2 id="2-表格属性">2. 表格属性</h2>
+<p>表格有部分属性我们不常用，这里重点记住 cellspacing 、 cellpadding。</p>
+<p><img src="https://yanyecarr.github.io//post-images/1586096671084.png" alt=""></p>
+<p>我们经常有个说法，是三参为0，  平时开发的我们这三个参数    border  cellpadding  cellspacing  为  0</p>
+<p><img src="https://yanyecarr.github.io//post-images/1586096678951.png" alt=""></p>
+<p><strong>案例1：</strong></p>
+<p><img src="https://yanyecarr.github.io//post-images/1586096689863.png" alt=""></p>
+<pre><code class="language-html">&lt;table width=&quot;500&quot; height=&quot;300&quot; border=&quot;1&quot; cellpadding=&quot;20&quot; cellspacing=&quot;0&quot; align=&quot;center&quot;&gt;
+   &lt;tr&gt;  &lt;th&gt;姓名&lt;/th&gt;   &lt;th&gt;性别&lt;/th&gt; &lt;th&gt;年龄&lt;/th&gt;  &lt;/tr&gt;
+   &lt;tr&gt;  &lt;td&gt;刘德华&lt;/td&gt; &lt;td&gt;男&lt;/td&gt; &lt;td&gt;55&lt;/td&gt;  &lt;/tr&gt;
+   &lt;tr&gt;  &lt;td&gt;郭富城&lt;/td&gt; &lt;td&gt;男&lt;/td&gt; &lt;td&gt;52&lt;/td&gt;  &lt;/tr&gt;
+   &lt;tr&gt;  &lt;td&gt;张学友&lt;/td&gt; &lt;td&gt;男&lt;/td&gt; &lt;td&gt;58&lt;/td&gt;  &lt;/tr&gt;
+   &lt;tr&gt;  &lt;td&gt;黎明&lt;/td&gt;   &lt;td&gt;男&lt;/td&gt; &lt;td&gt;18&lt;/td&gt;  &lt;/tr&gt;
+   &lt;tr&gt;  &lt;td&gt;刘晓庆&lt;/td&gt; &lt;td&gt;女&lt;/td&gt; &lt;td&gt;63&lt;/td&gt;  &lt;/tr&gt;
+&lt;/table&gt;
+</code></pre>
+<h2 id="3-表头单元格标签th">3. 表头单元格标签th</h2>
+<ul>
+<li>作用：
+<ul>
+<li>一般表头单元格位于表格的第一行或第一列，并且文本加粗居中</li>
+</ul>
+</li>
+<li>语法：
+<ul>
+<li>只需用表头标签&lt;th&gt;&lt;/th&gt;替代相应的单元格标签&lt;td&gt;&lt;/td&gt;即可。</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://yanyecarr.github.io//post-images/1586096700716.png" alt=""></p>
+<p><strong>案例2：</strong></p>
+<p>​	效果图</p>
+<p><img src="https://yanyecarr.github.io//post-images/1586096710607.png" alt=""></p>
+<p>​	代码：</p>
+<hr>
+<pre><code class="language-html">&lt;table width=&quot;500&quot; border=&quot;1&quot; align=&quot;center&quot; cellspacing=&quot;0&quot; cellpadding=&quot;0&quot;&gt;
+		&lt;tr&gt;  
+			&lt;th&gt;姓名&lt;/th&gt; 
+			&lt;th&gt;性别&lt;/th&gt;
+			&lt;th&gt;电话&lt;/th&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;td&gt;小王&lt;/td&gt;
+			&lt;td&gt;女&lt;/td&gt;
+			&lt;td&gt;110&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;td&gt;小明&lt;/td&gt;
+			&lt;td&gt;男&lt;/td&gt;
+			&lt;td&gt;120&lt;/td&gt;
+		&lt;/tr&gt;	
+	&lt;/table&gt;
+</code></pre>
+<blockquote>
+<p>th 也是一个单元格   只不过和普通的 td单元格不一样，它会让自己里面的文字居中且加粗</p>
+</blockquote>
+<h2 id="4-表格标题caption">4. 表格标题caption</h2>
+<p><strong>定义和用法</strong></p>
+<pre><code class="language-html">&lt;table&gt;
+   &lt;caption&gt;我是表格标题&lt;/caption&gt;
+&lt;/table&gt;
+</code></pre>
+<p>**注意： **</p>
+<ol>
+<li>caption 元素定义<strong>表格标题</strong>，通常这个标题会被居中且显示于表格之上。</li>
+<li>caption 标签必须紧随 table 标签之后。</li>
+<li>这个标签只存在 表格里面才有意义。你是风儿我是沙</li>
+</ol>
+<p><strong>案例3：</strong></p>
+<p>根据要求完成以下案例：</p>
+<p><img src="https://yanyecarr.github.io//post-images/1586096728047.png" alt=""></p>
+<h2 id="5-合并单元格难点">5. 合并单元格(难点)</h2>
+<p>合并单元格是我们比较常用的一个操作，但是不会合并的很复杂。</p>
+<p><img src="https://yanyecarr.github.io//post-images/1586096740868.png" alt=""></p>
+<h3 id="51-合并单元格2种方式">5.1 合并单元格2种方式</h3>
+<ul>
+<li>跨行合并：rowspan=&quot;合并单元格的个数&quot;</li>
+<li>跨列合并：colspan=&quot;合并单元格的个数&quot;</li>
+</ul>
+<p><img src="https://yanyecarr.github.io//post-images/1586096752070.png" alt=""></p>
+<h3 id="52-合并单元格顺序">5.2 合并单元格顺序</h3>
+<blockquote>
+<p>**合并的顺序我们按照   先上 后下     先左  后右 的顺序 **</p>
+</blockquote>
+<p>跟我们以前学习汉字的书写顺序完全一致。</p>
+<h3 id="53-合并单元格三步曲">5.3 合并单元格三步曲</h3>
+<ol>
+<li>先确定是跨行还是跨列合并</li>
+<li>根据 先上 后下   先左  后右的原则找到目标单元格    然后写上 合并方式 还有 要合并的单元格数量  比如 ： <td colspan="3">   </td></li>
+<li>删除多余的单元格 单元格</li>
+</ol>
+<h2 id="6-总结表格">6. 总结表格</h2>
+<table>
+<thead>
+<tr>
+<th>标签名</th>
+<th style="text-align:left">定义</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><table></table></td>
+<td style="text-align:left">表格标签</td>
+<td style="text-align:left">就是一个四方的盒子</td>
+</tr>
+<tr>
+<td><tr></tr></td>
+<td style="text-align:left">表格行标签</td>
+<td style="text-align:left">行标签要再table标签内部才有意义</td>
+</tr>
+<tr>
+<td><td></td></td>
+<td style="text-align:left">单元格标签</td>
+<td style="text-align:left">单元格标签是个容器级元素，可以放任何东西</td>
+</tr>
+<tr>
+<td><th></th></td>
+<td style="text-align:left">表头单元格标签</td>
+<td style="text-align:left">它还是一个单元格，但是里面的文字会居中且加粗</td>
+</tr>
+<tr>
+<td><caption></caption></td>
+<td style="text-align:left">表格标题标签</td>
+<td style="text-align:left">表格的标题，跟着表格一起走，和表格居中对齐</td>
+</tr>
+<tr>
+<td>clospan 和 rowspan</td>
+<td style="text-align:left">合并属性</td>
+<td style="text-align:left">用来合并单元格的</td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li>表格提供了HTML 中定义表格式数据的方法。</li>
+<li>表格中由行中的单元格组成。</li>
+<li>表格中没有列元素，列的个数取决于行的单元格个数。</li>
+<li>表格不要纠结于外观，那是CSS 的作用。</li>
+<li>表格的学习要求：  能手写表格结构，并且能简单合并单元格。</li>
+</ol>
+<h2 id="7-拓展阅读">7. 拓展阅读@</h2>
+<h3 id="表格划分结构了解">表格划分结构（了解）</h3>
+<pre><code>对于比较复杂的表格，表格的结构也就相对的复杂了，所以又将表格分割成三个部分：题头、正文和脚注。而这三部分分别用:thead,tbody,tfoot来标注， 这样更好的分清表格结构
+</code></pre>
+<p><img src="https://yanyecarr.github.io//post-images/1586096771677.png" alt=""></p>
+<p><strong>注意：</strong></p>
+<ol>
+<li>
+<thead></thead>：用于定义表格的头部。用来放标题之类的东西。<thead> 内部必须拥有 <tr> 标签！
+</li>
+<li>
+<tbody></tbody>：用于定义表格的主体。放数据本体 。
+</li>
+<li>
+<tfoot></tfoot>放表格的脚注之类。
+</li>
+<li>以上标签都是放到table标签中。</li>
+</ol>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[HTML常用标签]]></title>
+        <id>https://yanyecarr.github.io//post/html-chang-yong-biao-qian</id>
+        <link href="https://yanyecarr.github.io//post/html-chang-yong-biao-qian">
+        </link>
+        <updated>2020-04-05T14:12:49.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="11-排版标签">1.1 排版标签</h2>
+<p>排版标签主要和css搭配使用，显示网页结构的标签，是网页布局最常用的标签。</p>
+<h3 id="1标题标签h-熟记">1）标题标签h (熟记)</h3>
+<p>单词缩写：  head   头部. 标题       title  文档标题</p>
+<p>为了使网页更具有语义化，我们经常会在页面中用到标题标签，HTML提供了6个等级的标题，即</p>
+<p><strong>标题标签语义：</strong>  作为标题使用，并且依据重要性递减</p>
+<p>其基本语法格式如下：</p>
+<pre><code class="language-html">&lt;h1&gt;   标题文本   &lt;/h1&gt;
+&lt;h2&gt;   标题文本   &lt;/h2&gt;
+&lt;h3&gt;   标题文本   &lt;/h3&gt;
+&lt;h4&gt;   标题文本   &lt;/h4&gt;
+&lt;h5&gt;   标题文本   &lt;/h5&gt;
+&lt;h6&gt;   标题文本   &lt;/h6&gt;
+</code></pre>
+<p>显示效果如下：
+<img src="https://yanyecarr.github.io//post-images/1586096145188.png" alt=""></p>
+<h3 id="2段落标签p-熟记">2）段落标签p ( 熟记)</h3>
+<p>单词缩写：  paragraph  段落  [ˈpærəgræf]    无须记这个单词</p>
+<p><strong>作用语义：</strong></p>
+<p>可以把 HTML 文档分割为若干段落</p>
+<p>在网页中要把文字有条理地显示出来，离不开段落标签，就如同我们平常写文章一样，整个网页也可以分为若干个段落，而段落的标签就是</p>
+<pre><code class="language-html">&lt;p&gt;  文本内容  &lt;/p&gt;
+</code></pre>
+<p>是HTML文档中最常见的标签，默认情况下，文本在一个段落中会根据浏览器窗口的大小自动换行。</p>
+<h3 id="3水平线标签hr认识">3）水平线标签hr(认识)</h3>
+<p>单词缩写：  horizontal  横线    [ˌhɔrəˈzɑntl]    同上</p>
+<p>在网页中常常看到一些水平线将段落与段落之间隔开，使得文档结构清晰，层次分明。这些水平线可以通过插入图片实现，也可以简单地通过标签来完成，<hr />就是创建横跨网页水平线的标签。其基本语法格式如下：</p>
+<pre><code class="language-html">&lt;hr /&gt;是单标签
+</code></pre>
+<p>在网页中显示默认样式的水平线。</p>
+<h3 id="4换行标签br-熟记">4）换行标签br (熟记)</h3>
+<p>单词缩写：  break   打断 ,换行</p>
+<p>在HTML中，一个段落中的文字会从左到右依次排列，直到浏览器窗口的右端，然后自动换行。如果希望某段文本强制换行显示，就需要使用换行标签</p>
+<pre><code class="language-html">&lt;br /&gt;
+</code></pre>
+<p>这时如果还像在word中直接敲回车键换行就不起作用了。</p>
+<p>此处有练习题</p>
+<h3 id="5div-和-span标签重点">5）div 和  span标签(重点)</h3>
+<p>div   span    是没有语义的     是我们网页布局主要的2个盒子   想必你听过  css+div</p>
+<p>div 就是  division  的缩写   分割， 分区的意思  其实有很多div 来组合网页。</p>
+<p>span   跨度，跨距；范围</p>
+<p>语法格式：</p>
+<pre><code class="language-html">&lt;div&gt; 这是头部 &lt;/div&gt;    &lt;span&gt;今日价格&lt;/span&gt;
+</code></pre>
+<p>他们两个都是盒子，用来装我们网页元素的， 只不过他们有区别，现在我们记住</p>
+<ul>
+<li>div标签  用来布局的，但是现在一行只能放一个div</li>
+<li>span标签  用来布局的，一行上可以放好多个span</li>
+</ul>
+<p>后面后面讲显示模式的时候，会告诉大家</p>
+<h3 id="排版标签总结">排版标签总结</h3>
+<table>
+<thead>
+<tr>
+<th>标签名</th>
+<th style="text-align:left">定义</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><hx></hx></td>
+<td style="text-align:left">标题标签</td>
+<td style="text-align:left">作为标题使用，并且依据重要性递减</td>
+</tr>
+<tr>
+<td><p></p></td>
+<td style="text-align:left">段落标签</td>
+<td style="text-align:left">可以把 HTML 文档分割为若干段落</td>
+</tr>
+<tr>
+<td><hr /></td>
+<td style="text-align:left">水平线标签</td>
+<td style="text-align:left">没啥可说的，就是一条线</td>
+</tr>
+<tr>
+<td><br /></td>
+<td style="text-align:left">换行标签</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td><div></div></td>
+<td style="text-align:left">div标签</td>
+<td style="text-align:left">用来布局的，但是现在一行只能放一个div</td>
+</tr>
+<tr>
+<td><span></span></td>
+<td style="text-align:left">span标签</td>
+<td style="text-align:left">用来布局的，一行上可以放好多个span</td>
+</tr>
+</tbody>
+</table>
+<h2 id="12-文本格式化标签熟记">1.2 文本格式化标签(熟记)</h2>
+<p>在网页中，有时需要为文字设置粗体、斜体或下划线效果，这时就需要用到HTML中的文本格式化标签，使文字以特殊的方式显示。
+<img src="https://yanyecarr.github.io//post-images/1586096229487.png" alt="">
+<strong>区别：</strong></p>
+<p>b  只是加粗        strong  除了可以加粗还有 强调的意思，  语义更强烈。</p>
+<h2 id="13-标签属性">1.3 标签属性</h2>
+<p>所谓属性就是<strong>外在特性</strong>  比如 手机的颜色 手机的尺寸 ，总结就是手机的。。</p>
+<ul>
+<li>手机的颜色是黑色</li>
+<li>手机的尺寸是 8寸</li>
+<li>水平线的长度是 200</li>
+<li>图片的宽度 是  300</li>
+</ul>
+<p>使用HTML制作网页时，如果想让HTML标签提供更多的信息，可以使用HTML标签的属性加以设置。其基本语法格式如下：</p>
+<pre><code class="language-html">&lt;标签名 属性1=&quot;属性值1&quot; 属性2=&quot;属性值2&quot; …&gt; 内容 &lt;/标签名&gt;
+&lt;手机 颜色=&quot;红色&quot; 大小=&quot;5寸&quot;&gt;  &lt;/手机&gt;
+</code></pre>
+<p>提倡：   尽量不使用 样式属性。</p>
+<h2 id="14-图像标签img-重点">1.4 图像标签img (重点)</h2>
+<p>单词缩写：   image  图像</p>
+<p>要想在网页中显示图像就需要使用图像标签，接下来将详细介绍图像标签<img />以及和他相关的属性。（它是一个单身狗）</p>
+<p>语法如下：</p>
+<pre><code class="language-html">&lt;img src=&quot;图像URL&quot; /&gt;
+</code></pre>
+<p>该语法中src属性用于指定图像文件的路径和文件名，他是img标签的必需属性。</p>
+<p>**注意: **</p>
+<ol>
+<li>标签可以拥有多个属性，必须写在开始标签中，位于标签名后面。</li>
+<li>属性之间不分先后顺序，标签名与属性、属性与属性之间均以空格分开。</li>
+<li>任何标签的属性都有默认值，省略该属性则取默认值。</li>
+<li>采取  键值对 的格式   key=&quot;value&quot;  的格式</li>
+</ol>
+<p>比如:</p>
+<pre><code class="language-html">	正常的&lt;br /&gt;
+    &lt;img src=&quot;cz.jpg&quot; width=&quot;300&quot; height=&quot;300&quot; /&gt;&lt;br /&gt;
+     带有边框的&lt;br /&gt;
+    &lt;img src=&quot;cz.jpg&quot; width=&quot;300&quot; height=&quot;300&quot; border=&quot;3&quot; /&gt;&lt;br /&gt;
+	有提示文本的&lt;br /&gt;
+	&lt;img src=&quot;cz.jpg&quot; width=&quot;300&quot; height=&quot;300&quot; border=&quot;3&quot; title=&quot;这是个小蒲公英&quot; /&gt;&lt;br /&gt;
+	有替换文本的&lt;br /&gt;
+	&lt;img src=&quot;cz.jpg&quot; width=&quot;300&quot; height=&quot;300&quot; border=&quot;3&quot; alt=&quot;图片不存在&quot; /&gt;
+</code></pre>
+<h2 id="15-链接标签重点">1.5 链接标签(重点)</h2>
+<p>单词缩写：  anchor 的缩写  [ˈæŋkə(r)] 。基本解释 锚, 铁锚 的</p>
+<p>在HTML中创建超链接非常简单，只需用标签把文字包括起来就好。</p>
+<p>语法格式：</p>
+<pre><code class="language-html">&lt;a href=&quot;跳转目标&quot; target=&quot;目标窗口的弹出方式&quot;&gt;文本或图像&lt;/a&gt;
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th style="text-align:left">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>href</td>
+<td style="text-align:left">用于指定链接目标的url地址，（必须属性）当为标签应用href属性时，它就具有了超链接的功能</td>
+</tr>
+<tr>
+<td>target</td>
+<td style="text-align:left">用于指定链接页面的打开方式，其取值有_self和_blank两种，其中_self为默认值，_blank为在新窗口中打开方式。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>注意：</strong></p>
+<ol>
+<li>外部链接 需要添加 http:// www.baidu.com</li>
+<li>内部链接 直接链接内部页面名称即可 比如 &lt; a href=&quot;index.html&quot;&gt; 首页 </a ></li>
+<li>如果当时没有确定链接目标时，通常将链接标签的href属性值定义为“#”(即href=&quot;#&quot;)，表示该链接暂时为一个空链接。</li>
+<li>不仅可以创建文本超链接，在网页中各种网页元素，如图像、表格、音频、视频等都可以添加超链接。</li>
+</ol>
+<p><strong>重点掌握点：</strong></p>
+<ul class="contains-task-list">
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-8880966"><label class="task-list-item-label" for="task-item-8880966"> 请说出 链接标签那个属性是必须要写的？  href</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-3734214"><label class="task-list-item-label" for="task-item-3734214"> 请说出 如何新窗口打开这个一个链接网页的？ target=“_blank”</label></li>
+</ul>
+<h2 id="16-注释标签">1.6 注释标签</h2>
+<p>在HTML中还有一种特殊的标签——注释标签。如果需要在HTML文档中添加一些便于阅读和理解但又不需要显示在页面中的注释文字，就需要使用注释标签。</p>
+<p>简单解释：</p>
+<p>注释内容不会显示在浏览器窗口中，但是作为HTML文档内容的一部分，也会被下载到用户的计算机上，查看源代码时就可以看到。</p>
+<p>语法格式：</p>
+<pre><code class="language-html">    &lt;!-- 注释语句 --&gt;     快捷键是：    ctrl + /       或者 ctrl +shift + / 
+</code></pre>
+<p>注释重要性：</p>
+<p><img src="https://yanyecarr.github.io//post-images/1586096428645.png" alt=""></p>
+<blockquote>
+<p>注释是给人看的，目的是为了更好的解释这部分代码是干啥的， 程序是不执行这个代码的</p>
+</blockquote>
+<h3 id="团队约定">团队约定</h3>
+<p>一般用于简单的描述，如某些状态描述、属性描述等</p>
+<p>注释内容前后各一个空格字符，注释位于要注释代码的上面，单独占一行</p>
+<p><em>推荐：</em></p>
+<pre><code>&lt;!-- Comment Text --&gt;
+&lt;div&gt;...&lt;/div&gt;
+</code></pre>
+<p><em>不推荐：</em></p>
+<pre><code>&lt;div&gt;...&lt;/div&gt;&lt;!-- Comment Text --&gt;	
+	
+&lt;div&gt;&lt;!-- Comment Text --&gt;
+    ...
+&lt;/div&gt;
+</code></pre>
+<h1 id="2-路径重点-难点">2. 路径(重点、难点)</h1>
+<p><img src="https://yanyecarr.github.io//post-images/1586096407576.png" alt=""></p>
+<p>实际工作中，我们的文件不能随便乱放，否则用起来很难快速的找到他们，因此我们需要一个文件夹来管理他们。</p>
+<p>**目录文件夹： **</p>
+<p>就是普通文件夹，里面只不过存放了我们做页面所需要的 相关素材，比如 html文件， 图片 等等。</p>
+<p><img src="https://yanyecarr.github.io//post-images/1586096389168.png" alt="">
+**根目录 **</p>
+<p>打开目录文件夹的第一层  就是 根目录
+<img src="https://yanyecarr.github.io//post-images/1586096395166.png" alt=""></p>
+<p>页面中的图片会非常多， 通常我们再新建一个文件夹专门用于存放图像文件（images），这时再插入图像，就需要采用“路径”的方式来指定图像文件的位置。路径可以分为： 相对路径和绝对路径</p>
+<h2 id="相对路径">相对路径</h2>
+<p>以引用文件之网页所在位置为参考基础，而建立出的目录路径。因此，当保存于不同目录的网页引用同一个文件时，所使用的路径将不相同，故称之为相对路径。</p>
+<table>
+<thead>
+<tr>
+<th>路径分类</th>
+<th style="text-align:center">符号</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>同一级路径</td>
+<td style="text-align:center"></td>
+<td style="text-align:left">只需输入图像文件的名称即可，如&lt;img src=&quot;baidu.gif&quot; /&gt;。</td>
+</tr>
+<tr>
+<td>下一级路径</td>
+<td style="text-align:center">“/”</td>
+<td style="text-align:left">图像文件位于HTML文件同级文件夹下（例如文件夹名称为：images）                         如&lt;img src=&quot;images/baidu.gif&quot; /&gt;。</td>
+</tr>
+<tr>
+<td>上一级路径</td>
+<td style="text-align:center">“../”</td>
+<td style="text-align:left">在文件名之前加入“../” ，如果是上两级，则需要使用 “../ ../”，以此类推，                    如&lt;img src=&quot;../baidu.gif&quot; /&gt;。</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>相对路径，是从代码所在的这个文件出发， 去寻找我们的目标文件的，而 我们所说的 上一级 下一级 同一级  简单说，就是 图片 位于 HTML 页面的位置</p>
+</blockquote>
+<h2 id="绝对路径">绝对路径</h2>
+<p>绝对路径以Web站点根目录为参考基础的目录路径。之所以称为绝对，意指当所有网页引用同一个文件时，所使用的路径都是一样的。</p>
+<p>“D:\web\img\logo.gif”，或完整的网络地址，例如“http://www..cn/images/logo.gif”。</p>
+<p><strong>注意：</strong></p>
+<p>绝对路径用的较少，我们理解下就可以了。  但是要注意，它的写法 特别是符号  \  并不是 相对路径的   /</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Elasticsearch与部署]]></title>
         <id>https://yanyecarr.github.io//post/elasticsearch-yu-bu-shu</id>
