@@ -1,0 +1,501 @@
+<html>
+<head>
+    <meta charset="utf-8"/>
+<meta name="description" content=""/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Vue项目笔记-1 | carr</title>
+<link rel="shortcut icon" href="https://yanyecarr.github.io//favicon.ico?v=1588495534658">
+<link href="https://cdn.bootcss.com/font-awesome/5.11.2/css/all.css" rel="stylesheet">
+<link rel="stylesheet" href="https://yanyecarr.github.io//styles/main.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+<script src="https://cdn.bootcss.com/highlight.js/9.15.10/highlight.min.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/dockerfile.min.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/dart.min.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/go.min.js"></script>
+<script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+
+<!-- DEMO JS -->
+<script src="media/scripts/index.js"></script>
+
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+</head>
+
+<body>
+<div class="main gt-bg-theme-color-first">
+    <nav class="navbar navbar-expand-lg">
+    <div class="navbar-brand">
+        <img class="user-avatar" src="/images/avatar.png" alt="头像">
+        <div class="site-name gt-c-content-color-first">
+            carr
+        </div>
+    </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars gt-c-content-color-first" style="font-size: 18px"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="navbar-nav mr-auto" style="text-align: center">
+            
+                <div class="nav-item">
+                    
+                        <a href="/" class="menu gt-a-link">
+                            首页
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="/archives" class="menu gt-a-link">
+                            归档
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="/tags" class="menu gt-a-link">
+                            标签
+                        </a>
+                    
+                </div>
+            
+        </div>
+    </div>
+</nav>
+    <div class="post-container">
+        <div class="post-detail gt-bg-theme-color-second">
+            <article class="gt-post-content">
+                <h2 class="post-title">
+                    Vue项目笔记-1
+                </h2>
+                <div class="post-info">
+                    <time class="post-time gt-c-content-color-first">
+                        · 2020-05-03 ·
+                    </time>
+                    
+                        <a href="https://yanyecarr.github.io//tag/s9IVAGu_M" class="post-tags">
+                            # vue
+                        </a>
+                    
+                </div>
+                <div class="post-content">
+                    <h2 id="登录">登录</h2>
+<h3 id="请求登录">请求登录</h3>
+<pre><code>ligin() {
+	// 点击登录的时候先调用validate方法验证表单内容是否有误
+	this.$refs.LoginFormRef.validate(async valid =&gt; {
+	if(!valid){
+		return
+	}
+	// 发送请求进行登录
+	const {data: res} = await this.$http.post('login',this.loginForm)
+	})
+}
+</code></pre>
+<h4 id="配置axios">配置axios</h4>
+<pre><code>1.main.js 导入 import axios from 'axios'
+2.设置请求根路径: axios.defaults.baseURL=&quot;http://127.0.0.1:8888/api/private/v1/&quot;
+3.挂载axios：Vue.prototype.$http = axios
+</code></pre>
+<h4 id="配置弹窗提示">配置弹窗提示</h4>
+<pre><code>1.在element.js文件中,导入Message 
+import {Message} from 'element-ui'
+2.进行全局挂载:Vue.prototype.$message = Message
+3.使用:this.$message.error(&quot;提示内容&quot;)
+</code></pre>
+<h4 id="登录成功后保存token操作">登录成功后保存token操作</h4>
+<pre><code>1.登录成功后,需要将后台的token保存到sessionStorage中,操作完毕后跳转到对应页面
+windows.sessionStorage.setItem('token',请求成功返回的token值)
+// 编程式跳转
+this.$touter.push('/home')
+</code></pre>
+<h4 id="退出功能操作">退出功能操作</h4>
+<pre><code>logout() {
+	methods: {
+		windows.sessionStorage.clear()
+		this.$router.push('login')
+	}
+}
+</code></pre>
+<h4 id="添加路由守卫">添加路由守卫</h4>
+<pre><code>1.如果用户没有登录,不能访问带有权限的页面,如果用户强制访问,则强制跳转到登录页面
+//挂载路由导航守卫,to表示将要访问的路径,from表示从哪里赖,next是下一个要做的操作
+router.beforeEach((to,from,next)=&gt;{
+	if(to.path === '/login')
+		return next();
+	// 获取token	
+	const tokenstr = windows.sessionStorage.getItem('token')
+	if(!tokenStr)
+	reuturn next('/login')
+	
+	next();
+}
+)
+</code></pre>
+<h4 id="处理eslint警告">处理ESLint警告</h4>
+<pre><code>1.项目根目录添加.prettlerrc json文件
+{
+	&quot;semi&quot;:false,
+	&quot;singleQuote&quot;:true
+}
+2.打开.eslintrc.js文件 禁用对space-before-function-paren的检查
+rules: {
+	'space-before-function-paren' : 0
+}
+</code></pre>
+<h4 id="代码提交">代码提交</h4>
+<pre><code>1.文件提交暂存区：git add .
+2.提交到本地仓库：git commit -m &quot;提交名&quot;
+3.查看分支：git branch
+4.切换分支：git checkout 主分支名
+5.合并：git merge 提交的分支名
+6.将本地主分支代码提交到远程：git push
+7.将本地子分支代码提交： 先切换git checkout 分支名
+8.在推送：git push -u origin 远程分支名
+</code></pre>
+<h4 id="使用第三方字体">使用第三方字体</h4>
+<pre><code>1.将fonts文件夹放在assets中
+2.在main.js文件中导入 import './assets/fonts/iconfont.css'
+3.prefix-icon='' 添加属性
+</code></pre>
+<h4 id="表单验证方法">表单验证方法</h4>
+<pre><code>1.给&lt;el-form&gt;添加属性：rules=&quot;rules&quot; rules是一堆验证规则，定义在script中
+2.rules ：{
+	username:[{
+		required:true,message：'请输入用户名',trigger:'blur'
+	},{min：3，max：10，message：'用户名长度在3到10个字符'},trigger:blur]
+}
+3.通过prop设置验证规则 prop=&quot;username&quot;
+</code></pre>
+<h2 id="element-ui">element-ui</h2>
+<h3 id="button">Button</h3>
+<pre><code> &lt;el-button disabled&gt;默认按钮&lt;/el-button&gt;
+ &lt;el-button type=&quot;primary&quot; disabled&gt;主要按钮&lt;/el-button&gt;
+ &lt;el-button type=&quot;success&quot; disabled&gt;成功按钮&lt;/el-button&gt;
+ &lt;el-button type=&quot;info&quot; disabled&gt;信息按钮&lt;/el-button&gt;
+ &lt;el-button type=&quot;warning&quot; disabled&gt;警告按钮&lt;/el-button&gt;
+ &lt;el-button type=&quot;danger&quot; disabled&gt;危险按钮&lt;/el-button&gt;
+</code></pre>
+<h3 id="formformitem">Form&amp;FormItem</h3>
+<pre><code class="language-html">&lt;el-form ref=&quot;loginFormRef&quot; :rules=&quot;loginFormRules&quot; :model=&quot;loginForm&quot; label-width=&quot;0px&quot; class=&quot;login_from&quot;&gt;
+&lt;el-form-item prop=&quot;username&quot;&gt;
+&lt;el-input v-model=&quot;loginForm.username&quot;  prefix-icon=&quot;el-icon-search&quot; &gt;&lt;/el-input&gt;
+&lt;/el-form-item&gt;
+&lt;/el-form&gt;
+
+ref：表单的引用对象
+this.$ref.loginFormRef.validate((valid)=&gt;{})
+rules:表单数据的验证规则
+prop：绑定验证规则
+loginFormRules: {
+            username:[
+            { required: true, message: &quot;请输入用户名&quot;, trigger: 'blur' },
+            { min: 3, max: 10, message: &quot;长度在3到10个字符&quot;, trigger: 'blur' }
+            ],
+            password:[
+                 { required: true, message: &quot;请输入密码&quot;, trigger: 'blur' },
+                 { min: 6, max: 15, message: &quot;长度在6到16个字符&quot;, trigger: 'blur' }
+
+            ]
+            }  
+
+</code></pre>
+<h3 id="input">Input</h3>
+<pre><code>&lt;el-input v-model=&quot;input&quot; placeholder=&quot;请输入内容&quot;&gt;&lt;/el-input&gt;
+</code></pre>
+<h3 id="message">Message</h3>
+<pre><code>success 成功
+warning 警告
+error 错误
+info 消息
+</code></pre>
+<h3 id="container">Container</h3>
+<pre><code>&lt;el-container&gt;：外层容器。当子元素中包含 &lt;el-header&gt; 或 &lt;el-footer&gt; 时，全部子元素会垂直上下排列，否则会水平左右排列。
+&lt;el-header&gt;：顶栏容器。
+&lt;el-aside&gt;：侧边栏容器。
+&lt;el-main&gt;：主要区域容器。
+&lt;el-footer&gt;：底栏容器。
+</code></pre>
+<h3 id="breadcrumbbreadcrumbitem">Breadcrumb&amp;BreadcrumbItem</h3>
+<pre><code>&lt;el-breadcrumb separator=&quot;/&quot;&gt;
+  &lt;el-breadcrumb-item :to=&quot;{ path: '/' }&quot;&gt;首页&lt;/el-breadcrumb-item&gt;
+  &lt;el-breadcrumb-item&gt;&lt;a href=&quot;/&quot;&gt;活动管理&lt;/a&gt;&lt;/el-breadcrumb-item&gt;
+  &lt;el-breadcrumb-item&gt;活动列表&lt;/el-breadcrumb-item&gt;
+  &lt;el-breadcrumb-item&gt;活动详情&lt;/el-breadcrumb-item&gt;
+&lt;/el-breadcrumb&gt;
+</code></pre>
+<h3 id="card">Card</h3>
+<pre><code>&lt;el-card&gt;
+&lt;/el-card&gt;
+</code></pre>
+<h3 id="row-col">Row&amp; Col</h3>
+<pre><code>&lt;el-row :gutter=&quot;20&quot;&gt;
+  &lt;el-col :span=&quot;6&quot;&gt;&lt;div class=&quot;grid-content bg-purple&quot;&gt;&lt;/div&gt;&lt;/el-col&gt;
+  &lt;el-col :span=&quot;6&quot;&gt;&lt;div class=&quot;grid-content bg-purple&quot;&gt;&lt;/div&gt;&lt;/el-col&gt;
+  &lt;el-col :span=&quot;6&quot;&gt;&lt;div class=&quot;grid-content bg-purple&quot;&gt;&lt;/div&gt;&lt;/el-col&gt;
+  &lt;el-col :span=&quot;6&quot;&gt;&lt;div class=&quot;grid-content bg-purple&quot;&gt;&lt;/div&gt;&lt;/el-col&gt;
+&lt;/el-row&gt;
+
+</code></pre>
+<h3 id="tabletablecolumn">Table&amp;TableColumn</h3>
+<pre><code> &lt;el-table :data=&quot;orderList&quot; border stripe&gt;
+        &lt;el-table-column type=&quot;index&quot; label=&quot;#&quot;&gt;&lt;/el-table-column&gt;
+        &lt;el-table-column label=&quot;订单编号&quot; prop=&quot;order_number&quot;&gt;&lt;/el-table-column&gt;
+        &lt;el-table-column label=&quot;订单价格&quot; prop=&quot;order_price&quot;&gt;&lt;/el-table-column&gt;
+        &lt;el-table-column label=&quot;是否付款&quot; prop=&quot;pay_status&quot;&gt;
+&lt;/el-table&gt;
+</code></pre>
+<h3 id="switch">Switch</h3>
+<pre><code>&lt;template slot-scope=&quot;scope&quot;&gt;
+            &lt;el-switch v-model=&quot;scope.row.mg_state&quot; @change=&quot;userStateChanged(scope.row)&quot;&gt;
+            &lt;/el-switch&gt;
+          &lt;/template&gt;
+</code></pre>
+<h3 id="tooltip">Tooltip</h3>
+<pre><code>&lt;el-tooltip effect=&quot;dark&quot; content=&quot;分配角色&quot; placement=&quot;top&quot; :enterable=&quot;false&quot;&gt;
+effect:主题
+content：提示的内容
+placement：提示的位置
+enterable：鼠标是否可以进入提示
+</code></pre>
+<h3 id="pagination">Pagination</h3>
+<pre><code>&lt;el-pagination
+        @size-change=&quot;handleSizeChange&quot;
+        @current-change=&quot;handleCurrentChange&quot;
+        :current-page=&quot;queryinfo.pagenum&quot;
+        :page-sizes=&quot;[1, 2, 5, 10]&quot;
+        :page-size=&quot;queryinfo.pagesize&quot;
+        layout=&quot;total, sizes, prev, pager, next, jumper&quot;
+        :total=&quot;total&quot;&gt;
+        &lt;/el-pagination&gt;
+</code></pre>
+<h3 id="dialog">Dialog</h3>
+<pre><code>&lt;el-dialog title=&quot;修改地址&quot; :visible.sync=&quot;addressVisible&quot; width=&quot;50%&quot; @close=&quot;addressCloseVisible&quot;&gt;
+      &lt;!-- 内容主体区域 --&gt;
+      &lt;!-- 底部区域 --&gt;
+      &lt;span slot=&quot;footer&quot; class=&quot;dialog-footer&quot;&gt;
+        &lt;el-button @click=&quot;addressVisible = false&quot;&gt;取 消&lt;/el-button&gt;
+        &lt;el-button type=&quot;primary&quot; @click=&quot;addressVisible = false&quot;&gt;确 定&lt;/el-button&gt;
+      &lt;/span&gt;
+    &lt;/el-dialog&gt;
+title：弹窗标题
+visible.sync：弹窗属性 默认false
+@close：关闭弹窗事件
+</code></pre>
+<h3 id="messagebox删除提示">MessageBox（删除提示）</h3>
+<pre><code>1.element.js
+导入messagebox
+Vue.prototype.$confirm = MessageBox.confirm
+const confirmResult = await this.$confirm(
+        &quot;此操作将永久删除该文件, 是否继续?&quot;,
+        &quot;提示&quot;,
+        {
+          confirmButtonText: &quot;确定&quot;,
+          cancelButtonText: &quot;取消&quot;,
+          type: &quot;warning&quot;
+        }
+      ).catch(err =&gt; err);
+if (confirmResult != &quot;confirm&quot;) return this.$message.info(&quot;已取消删除&quot;);
+</code></pre>
+<h3 id="tag">Tag</h3>
+<pre><code>&lt;el-tag&gt;标签一&lt;/el-tag&gt;
+&lt;el-tag type=&quot;success&quot;&gt;标签二&lt;/el-tag&gt;
+&lt;el-tag type=&quot;info&quot;&gt;标签三&lt;/el-tag&gt;
+&lt;el-tag type=&quot;warning&quot;&gt;标签四&lt;/el-tag&gt;
+&lt;el-tag type=&quot;danger&quot;&gt;标签五&lt;/el-tag&gt;
+closable:带关闭的标签
+</code></pre>
+<h3 id="tree">Tree</h3>
+<pre><code>    &lt;el-tree
+        :data=&quot;rightstree&quot;
+        :props=&quot;treeProps&quot;
+        show-checkbox
+        node-key=&quot;id&quot;
+        default-expand-all
+        :default-checked-keys=&quot;defKeys&quot;
+        ref=&quot;treeRef&quot;
+      &gt;&lt;/el-tree&gt;
+</code></pre>
+<h3 id="selectoption">Select&amp;Option</h3>
+<pre><code>&lt;template&gt;
+  &lt;el-select v-model=&quot;value&quot; placeholder=&quot;请选择&quot;&gt;
+    &lt;el-option
+      v-for=&quot;item in options&quot;
+      :key=&quot;item.value&quot;
+      :label=&quot;item.label&quot;
+      :value=&quot;item.value&quot;&gt;
+    &lt;/el-option&gt;
+  &lt;/el-select&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+  export default {
+    data() {
+      return {
+        options: [{
+          value: '选项1',
+          label: '黄金糕'
+        }, {
+          value: '选项2',
+          label: '双皮奶'
+        }, {
+          value: '选项3',
+          label: '蚵仔煎'
+        }, {
+          value: '选项4',
+          label: '龙须面'
+        }, {
+          value: '选项5',
+          label: '北京烤鸭'
+        }],
+        value: ''
+      }
+    }
+  }
+&lt;/script&gt;
+disabled 可以禁用选择器
+</code></pre>
+<h3 id="cascader">Cascader</h3>
+<pre><code>&lt;el-cascader :options=&quot;catelist&quot; :props=&quot;cateProps&quot; v-model=&quot;addForm.goods_cat&quot;  @change=&quot;handlechange&quot;&gt;&lt;/el-cascader&gt;
+el-cascader-pane:设置次级选择器高度
+cateProps:{
+        label : &quot;cat_name&quot;,
+        value : &quot;cat_id&quot;,
+        children: &quot;children&quot;
+      },
+</code></pre>
+<h3 id="alert">Alert</h3>
+<pre><code>&lt;template&gt;
+  &lt;el-alert
+    title=&quot;成功提示的文案&quot;
+    type=&quot;success&quot;&gt;
+  &lt;/el-alert&gt;
+  &lt;el-alert
+    title=&quot;消息提示的文案&quot;
+    type=&quot;info&quot;&gt;
+  &lt;/el-alert&gt;
+  &lt;el-alert
+    title=&quot;警告提示的文案&quot;
+    type=&quot;warning&quot;&gt;
+  &lt;/el-alert&gt;
+  &lt;el-alert
+    title=&quot;错误提示的文案&quot;
+    type=&quot;error&quot;&gt;
+  &lt;/el-alert&gt;
+&lt;/template&gt;
+</code></pre>
+<h3 id="tabs-tabpane">Tabs&amp; TabPane</h3>
+<pre><code>  &lt;el-tabs :tab-position=&quot;tabPosition&quot; &gt;
+    &lt;el-tab-pane label=&quot;用户管理&quot;&gt;用户管理&lt;/el-tab-pane&gt;
+    &lt;el-tab-pane label=&quot;配置管理&quot;&gt;配置管理&lt;/el-tab-pane&gt;
+    &lt;el-tab-pane label=&quot;角色管理&quot;&gt;角色管理&lt;/el-tab-pane&gt;
+    &lt;el-tab-pane label=&quot;定时任务补偿&quot;&gt;定时任务补偿&lt;/el-tab-pane&gt;
+  &lt;/el-tabs&gt;
+  tab-position：位置
+</code></pre>
+<h3 id="steps-step">Steps&amp; Step</h3>
+<pre><code>&lt;el-steps :active=&quot;active&quot; finish-status=&quot;success&quot;&gt;
+  &lt;el-step title=&quot;步骤 1&quot;&gt;&lt;/el-step&gt;
+  &lt;el-step title=&quot;步骤 2&quot;&gt;&lt;/el-step&gt;
+  &lt;el-step title=&quot;步骤 3&quot;&gt;&lt;/el-step&gt;
+&lt;/el-steps&gt;
+步骤条
+</code></pre>
+<h3 id="checkboxgroupcheckbox">CheckboxGroup&amp;Checkbox</h3>
+<pre><code>&lt;el-form-item :label=&quot;item.attr_name&quot;  v-for=&quot;item in  manyTableData&quot; :key=&quot;item.attr_id&quot;&gt;
+                &lt;el-checkbox-group v-model=&quot;item.attr_vals&quot;&gt;
+                  &lt;el-checkbox label=&quot;cb&quot; v-for=&quot;(cb,i) in item.attr_vals&quot; :key=&quot;i&quot;&gt;&lt;/el-checkbox&gt;
+                &lt;/el-checkbox-group&gt;
+            &lt;/el-form-item&gt;
+</code></pre>
+<h3 id="upload">Upload</h3>
+<pre><code>&lt;el-upload
+  class=&quot;upload-demo&quot;
+  action=&quot;https://jsonplaceholder.typicode.com/posts/&quot;
+  :on-preview=&quot;handlePreview&quot;
+  :on-remove=&quot;handleRemove&quot;
+  :file-list=&quot;fileList&quot;
+  list-type=&quot;picture&quot;&gt;
+  &lt;el-button size=&quot;small&quot; type=&quot;primary&quot;&gt;点击上传&lt;/el-button&gt;
+  &lt;div slot=&quot;tip&quot; class=&quot;el-upload__tip&quot;&gt;只能上传jpg/png文件，且不超过500kb&lt;/div&gt;
+&lt;/el-upload&gt;
+upload组件没有用到axios
+:headers图片上传组件的请求头对象
+</code></pre>
+<h2 id="过滤器">过滤器</h2>
+<pre><code>Vue.filter('dateFormat', function(originVal) {
+  const dt = new Date(originVal)
+
+  const y = dt.getFullYear()
+  const m = (dt.getMonth() + 1 + '').padStart(2, '0')
+  const d = (dt.getDate() + '').padStart(2, '0')
+
+  const hh = (dt.getHours() + '').padStart(2, '0')
+  const mm = (dt.getMinutes() + '').padStart(2, '0')
+  const ss = (dt.getSeconds() + '').padStart(2, '0')
+
+  return `${y}-${m}-${d} ${hh}:${mm}:${ss}`
+})
+
+</code></pre>
+
+                </div>
+            </article>
+        </div>
+		<div id="vcomments"></div>
+	
+   
+        
+            <div class="next-post">
+                <div class="next gt-c-content-color-first">下一篇</div>
+                <a href="https://yanyecarr.github.io//post/css-gao-ji-yong-fa" class="post-title gt-a-link">
+                    css高级用法
+                </a>
+            </div>
+        
+
+        
+		
+        <div class="site-footer gt-c-content-color-first">
+    <div class="slogan gt-c-content-color-first">欲买桂花同载酒，终不似，少年游</div>
+    <div class="social-container">
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+    </div>
+    
+</div>
+
+<script>
+    hljs.initHighlightingOnLoad()
+</script>
+
+
+    </div>
+</div>
+</body>
+</html>

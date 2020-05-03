@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://yanyecarr.github.io/</id>
     <title>carr</title>
-    <updated>2020-04-05T15:13:41.637Z</updated>
+    <updated>2020-05-03T08:45:45.033Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://yanyecarr.github.io/"/>
     <link rel="self" href="https://yanyecarr.github.io//atom.xml"/>
@@ -10,6 +10,373 @@
     <logo>https://yanyecarr.github.io//images/avatar.png</logo>
     <icon>https://yanyecarr.github.io//favicon.ico</icon>
     <rights>All rights reserved 2020, carr</rights>
+    <entry>
+        <title type="html"><![CDATA[Vue项目笔记-1]]></title>
+        <id>https://yanyecarr.github.io//post/vue-xiang-mu-bi-ji-1</id>
+        <link href="https://yanyecarr.github.io//post/vue-xiang-mu-bi-ji-1">
+        </link>
+        <updated>2020-05-03T08:43:41.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="登录">登录</h2>
+<h3 id="请求登录">请求登录</h3>
+<pre><code>ligin() {
+	// 点击登录的时候先调用validate方法验证表单内容是否有误
+	this.$refs.LoginFormRef.validate(async valid =&gt; {
+	if(!valid){
+		return
+	}
+	// 发送请求进行登录
+	const {data: res} = await this.$http.post('login',this.loginForm)
+	})
+}
+</code></pre>
+<h4 id="配置axios">配置axios</h4>
+<pre><code>1.main.js 导入 import axios from 'axios'
+2.设置请求根路径: axios.defaults.baseURL=&quot;http://127.0.0.1:8888/api/private/v1/&quot;
+3.挂载axios：Vue.prototype.$http = axios
+</code></pre>
+<h4 id="配置弹窗提示">配置弹窗提示</h4>
+<pre><code>1.在element.js文件中,导入Message 
+import {Message} from 'element-ui'
+2.进行全局挂载:Vue.prototype.$message = Message
+3.使用:this.$message.error(&quot;提示内容&quot;)
+</code></pre>
+<h4 id="登录成功后保存token操作">登录成功后保存token操作</h4>
+<pre><code>1.登录成功后,需要将后台的token保存到sessionStorage中,操作完毕后跳转到对应页面
+windows.sessionStorage.setItem('token',请求成功返回的token值)
+// 编程式跳转
+this.$touter.push('/home')
+</code></pre>
+<h4 id="退出功能操作">退出功能操作</h4>
+<pre><code>logout() {
+	methods: {
+		windows.sessionStorage.clear()
+		this.$router.push('login')
+	}
+}
+</code></pre>
+<h4 id="添加路由守卫">添加路由守卫</h4>
+<pre><code>1.如果用户没有登录,不能访问带有权限的页面,如果用户强制访问,则强制跳转到登录页面
+//挂载路由导航守卫,to表示将要访问的路径,from表示从哪里赖,next是下一个要做的操作
+router.beforeEach((to,from,next)=&gt;{
+	if(to.path === '/login')
+		return next();
+	// 获取token	
+	const tokenstr = windows.sessionStorage.getItem('token')
+	if(!tokenStr)
+	reuturn next('/login')
+	
+	next();
+}
+)
+</code></pre>
+<h4 id="处理eslint警告">处理ESLint警告</h4>
+<pre><code>1.项目根目录添加.prettlerrc json文件
+{
+	&quot;semi&quot;:false,
+	&quot;singleQuote&quot;:true
+}
+2.打开.eslintrc.js文件 禁用对space-before-function-paren的检查
+rules: {
+	'space-before-function-paren' : 0
+}
+</code></pre>
+<h4 id="代码提交">代码提交</h4>
+<pre><code>1.文件提交暂存区：git add .
+2.提交到本地仓库：git commit -m &quot;提交名&quot;
+3.查看分支：git branch
+4.切换分支：git checkout 主分支名
+5.合并：git merge 提交的分支名
+6.将本地主分支代码提交到远程：git push
+7.将本地子分支代码提交： 先切换git checkout 分支名
+8.在推送：git push -u origin 远程分支名
+</code></pre>
+<h4 id="使用第三方字体">使用第三方字体</h4>
+<pre><code>1.将fonts文件夹放在assets中
+2.在main.js文件中导入 import './assets/fonts/iconfont.css'
+3.prefix-icon='' 添加属性
+</code></pre>
+<h4 id="表单验证方法">表单验证方法</h4>
+<pre><code>1.给&lt;el-form&gt;添加属性：rules=&quot;rules&quot; rules是一堆验证规则，定义在script中
+2.rules ：{
+	username:[{
+		required:true,message：'请输入用户名',trigger:'blur'
+	},{min：3，max：10，message：'用户名长度在3到10个字符'},trigger:blur]
+}
+3.通过prop设置验证规则 prop=&quot;username&quot;
+</code></pre>
+<h2 id="element-ui">element-ui</h2>
+<h3 id="button">Button</h3>
+<pre><code> &lt;el-button disabled&gt;默认按钮&lt;/el-button&gt;
+ &lt;el-button type=&quot;primary&quot; disabled&gt;主要按钮&lt;/el-button&gt;
+ &lt;el-button type=&quot;success&quot; disabled&gt;成功按钮&lt;/el-button&gt;
+ &lt;el-button type=&quot;info&quot; disabled&gt;信息按钮&lt;/el-button&gt;
+ &lt;el-button type=&quot;warning&quot; disabled&gt;警告按钮&lt;/el-button&gt;
+ &lt;el-button type=&quot;danger&quot; disabled&gt;危险按钮&lt;/el-button&gt;
+</code></pre>
+<h3 id="formformitem">Form&amp;FormItem</h3>
+<pre><code class="language-html">&lt;el-form ref=&quot;loginFormRef&quot; :rules=&quot;loginFormRules&quot; :model=&quot;loginForm&quot; label-width=&quot;0px&quot; class=&quot;login_from&quot;&gt;
+&lt;el-form-item prop=&quot;username&quot;&gt;
+&lt;el-input v-model=&quot;loginForm.username&quot;  prefix-icon=&quot;el-icon-search&quot; &gt;&lt;/el-input&gt;
+&lt;/el-form-item&gt;
+&lt;/el-form&gt;
+
+ref：表单的引用对象
+this.$ref.loginFormRef.validate((valid)=&gt;{})
+rules:表单数据的验证规则
+prop：绑定验证规则
+loginFormRules: {
+            username:[
+            { required: true, message: &quot;请输入用户名&quot;, trigger: 'blur' },
+            { min: 3, max: 10, message: &quot;长度在3到10个字符&quot;, trigger: 'blur' }
+            ],
+            password:[
+                 { required: true, message: &quot;请输入密码&quot;, trigger: 'blur' },
+                 { min: 6, max: 15, message: &quot;长度在6到16个字符&quot;, trigger: 'blur' }
+
+            ]
+            }  
+
+</code></pre>
+<h3 id="input">Input</h3>
+<pre><code>&lt;el-input v-model=&quot;input&quot; placeholder=&quot;请输入内容&quot;&gt;&lt;/el-input&gt;
+</code></pre>
+<h3 id="message">Message</h3>
+<pre><code>success 成功
+warning 警告
+error 错误
+info 消息
+</code></pre>
+<h3 id="container">Container</h3>
+<pre><code>&lt;el-container&gt;：外层容器。当子元素中包含 &lt;el-header&gt; 或 &lt;el-footer&gt; 时，全部子元素会垂直上下排列，否则会水平左右排列。
+&lt;el-header&gt;：顶栏容器。
+&lt;el-aside&gt;：侧边栏容器。
+&lt;el-main&gt;：主要区域容器。
+&lt;el-footer&gt;：底栏容器。
+</code></pre>
+<h3 id="breadcrumbbreadcrumbitem">Breadcrumb&amp;BreadcrumbItem</h3>
+<pre><code>&lt;el-breadcrumb separator=&quot;/&quot;&gt;
+  &lt;el-breadcrumb-item :to=&quot;{ path: '/' }&quot;&gt;首页&lt;/el-breadcrumb-item&gt;
+  &lt;el-breadcrumb-item&gt;&lt;a href=&quot;/&quot;&gt;活动管理&lt;/a&gt;&lt;/el-breadcrumb-item&gt;
+  &lt;el-breadcrumb-item&gt;活动列表&lt;/el-breadcrumb-item&gt;
+  &lt;el-breadcrumb-item&gt;活动详情&lt;/el-breadcrumb-item&gt;
+&lt;/el-breadcrumb&gt;
+</code></pre>
+<h3 id="card">Card</h3>
+<pre><code>&lt;el-card&gt;
+&lt;/el-card&gt;
+</code></pre>
+<h3 id="row-col">Row&amp; Col</h3>
+<pre><code>&lt;el-row :gutter=&quot;20&quot;&gt;
+  &lt;el-col :span=&quot;6&quot;&gt;&lt;div class=&quot;grid-content bg-purple&quot;&gt;&lt;/div&gt;&lt;/el-col&gt;
+  &lt;el-col :span=&quot;6&quot;&gt;&lt;div class=&quot;grid-content bg-purple&quot;&gt;&lt;/div&gt;&lt;/el-col&gt;
+  &lt;el-col :span=&quot;6&quot;&gt;&lt;div class=&quot;grid-content bg-purple&quot;&gt;&lt;/div&gt;&lt;/el-col&gt;
+  &lt;el-col :span=&quot;6&quot;&gt;&lt;div class=&quot;grid-content bg-purple&quot;&gt;&lt;/div&gt;&lt;/el-col&gt;
+&lt;/el-row&gt;
+
+</code></pre>
+<h3 id="tabletablecolumn">Table&amp;TableColumn</h3>
+<pre><code> &lt;el-table :data=&quot;orderList&quot; border stripe&gt;
+        &lt;el-table-column type=&quot;index&quot; label=&quot;#&quot;&gt;&lt;/el-table-column&gt;
+        &lt;el-table-column label=&quot;订单编号&quot; prop=&quot;order_number&quot;&gt;&lt;/el-table-column&gt;
+        &lt;el-table-column label=&quot;订单价格&quot; prop=&quot;order_price&quot;&gt;&lt;/el-table-column&gt;
+        &lt;el-table-column label=&quot;是否付款&quot; prop=&quot;pay_status&quot;&gt;
+&lt;/el-table&gt;
+</code></pre>
+<h3 id="switch">Switch</h3>
+<pre><code>&lt;template slot-scope=&quot;scope&quot;&gt;
+            &lt;el-switch v-model=&quot;scope.row.mg_state&quot; @change=&quot;userStateChanged(scope.row)&quot;&gt;
+            &lt;/el-switch&gt;
+          &lt;/template&gt;
+</code></pre>
+<h3 id="tooltip">Tooltip</h3>
+<pre><code>&lt;el-tooltip effect=&quot;dark&quot; content=&quot;分配角色&quot; placement=&quot;top&quot; :enterable=&quot;false&quot;&gt;
+effect:主题
+content：提示的内容
+placement：提示的位置
+enterable：鼠标是否可以进入提示
+</code></pre>
+<h3 id="pagination">Pagination</h3>
+<pre><code>&lt;el-pagination
+        @size-change=&quot;handleSizeChange&quot;
+        @current-change=&quot;handleCurrentChange&quot;
+        :current-page=&quot;queryinfo.pagenum&quot;
+        :page-sizes=&quot;[1, 2, 5, 10]&quot;
+        :page-size=&quot;queryinfo.pagesize&quot;
+        layout=&quot;total, sizes, prev, pager, next, jumper&quot;
+        :total=&quot;total&quot;&gt;
+        &lt;/el-pagination&gt;
+</code></pre>
+<h3 id="dialog">Dialog</h3>
+<pre><code>&lt;el-dialog title=&quot;修改地址&quot; :visible.sync=&quot;addressVisible&quot; width=&quot;50%&quot; @close=&quot;addressCloseVisible&quot;&gt;
+      &lt;!-- 内容主体区域 --&gt;
+      &lt;!-- 底部区域 --&gt;
+      &lt;span slot=&quot;footer&quot; class=&quot;dialog-footer&quot;&gt;
+        &lt;el-button @click=&quot;addressVisible = false&quot;&gt;取 消&lt;/el-button&gt;
+        &lt;el-button type=&quot;primary&quot; @click=&quot;addressVisible = false&quot;&gt;确 定&lt;/el-button&gt;
+      &lt;/span&gt;
+    &lt;/el-dialog&gt;
+title：弹窗标题
+visible.sync：弹窗属性 默认false
+@close：关闭弹窗事件
+</code></pre>
+<h3 id="messagebox删除提示">MessageBox（删除提示）</h3>
+<pre><code>1.element.js
+导入messagebox
+Vue.prototype.$confirm = MessageBox.confirm
+const confirmResult = await this.$confirm(
+        &quot;此操作将永久删除该文件, 是否继续?&quot;,
+        &quot;提示&quot;,
+        {
+          confirmButtonText: &quot;确定&quot;,
+          cancelButtonText: &quot;取消&quot;,
+          type: &quot;warning&quot;
+        }
+      ).catch(err =&gt; err);
+if (confirmResult != &quot;confirm&quot;) return this.$message.info(&quot;已取消删除&quot;);
+</code></pre>
+<h3 id="tag">Tag</h3>
+<pre><code>&lt;el-tag&gt;标签一&lt;/el-tag&gt;
+&lt;el-tag type=&quot;success&quot;&gt;标签二&lt;/el-tag&gt;
+&lt;el-tag type=&quot;info&quot;&gt;标签三&lt;/el-tag&gt;
+&lt;el-tag type=&quot;warning&quot;&gt;标签四&lt;/el-tag&gt;
+&lt;el-tag type=&quot;danger&quot;&gt;标签五&lt;/el-tag&gt;
+closable:带关闭的标签
+</code></pre>
+<h3 id="tree">Tree</h3>
+<pre><code>    &lt;el-tree
+        :data=&quot;rightstree&quot;
+        :props=&quot;treeProps&quot;
+        show-checkbox
+        node-key=&quot;id&quot;
+        default-expand-all
+        :default-checked-keys=&quot;defKeys&quot;
+        ref=&quot;treeRef&quot;
+      &gt;&lt;/el-tree&gt;
+</code></pre>
+<h3 id="selectoption">Select&amp;Option</h3>
+<pre><code>&lt;template&gt;
+  &lt;el-select v-model=&quot;value&quot; placeholder=&quot;请选择&quot;&gt;
+    &lt;el-option
+      v-for=&quot;item in options&quot;
+      :key=&quot;item.value&quot;
+      :label=&quot;item.label&quot;
+      :value=&quot;item.value&quot;&gt;
+    &lt;/el-option&gt;
+  &lt;/el-select&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+  export default {
+    data() {
+      return {
+        options: [{
+          value: '选项1',
+          label: '黄金糕'
+        }, {
+          value: '选项2',
+          label: '双皮奶'
+        }, {
+          value: '选项3',
+          label: '蚵仔煎'
+        }, {
+          value: '选项4',
+          label: '龙须面'
+        }, {
+          value: '选项5',
+          label: '北京烤鸭'
+        }],
+        value: ''
+      }
+    }
+  }
+&lt;/script&gt;
+disabled 可以禁用选择器
+</code></pre>
+<h3 id="cascader">Cascader</h3>
+<pre><code>&lt;el-cascader :options=&quot;catelist&quot; :props=&quot;cateProps&quot; v-model=&quot;addForm.goods_cat&quot;  @change=&quot;handlechange&quot;&gt;&lt;/el-cascader&gt;
+el-cascader-pane:设置次级选择器高度
+cateProps:{
+        label : &quot;cat_name&quot;,
+        value : &quot;cat_id&quot;,
+        children: &quot;children&quot;
+      },
+</code></pre>
+<h3 id="alert">Alert</h3>
+<pre><code>&lt;template&gt;
+  &lt;el-alert
+    title=&quot;成功提示的文案&quot;
+    type=&quot;success&quot;&gt;
+  &lt;/el-alert&gt;
+  &lt;el-alert
+    title=&quot;消息提示的文案&quot;
+    type=&quot;info&quot;&gt;
+  &lt;/el-alert&gt;
+  &lt;el-alert
+    title=&quot;警告提示的文案&quot;
+    type=&quot;warning&quot;&gt;
+  &lt;/el-alert&gt;
+  &lt;el-alert
+    title=&quot;错误提示的文案&quot;
+    type=&quot;error&quot;&gt;
+  &lt;/el-alert&gt;
+&lt;/template&gt;
+</code></pre>
+<h3 id="tabs-tabpane">Tabs&amp; TabPane</h3>
+<pre><code>  &lt;el-tabs :tab-position=&quot;tabPosition&quot; &gt;
+    &lt;el-tab-pane label=&quot;用户管理&quot;&gt;用户管理&lt;/el-tab-pane&gt;
+    &lt;el-tab-pane label=&quot;配置管理&quot;&gt;配置管理&lt;/el-tab-pane&gt;
+    &lt;el-tab-pane label=&quot;角色管理&quot;&gt;角色管理&lt;/el-tab-pane&gt;
+    &lt;el-tab-pane label=&quot;定时任务补偿&quot;&gt;定时任务补偿&lt;/el-tab-pane&gt;
+  &lt;/el-tabs&gt;
+  tab-position：位置
+</code></pre>
+<h3 id="steps-step">Steps&amp; Step</h3>
+<pre><code>&lt;el-steps :active=&quot;active&quot; finish-status=&quot;success&quot;&gt;
+  &lt;el-step title=&quot;步骤 1&quot;&gt;&lt;/el-step&gt;
+  &lt;el-step title=&quot;步骤 2&quot;&gt;&lt;/el-step&gt;
+  &lt;el-step title=&quot;步骤 3&quot;&gt;&lt;/el-step&gt;
+&lt;/el-steps&gt;
+步骤条
+</code></pre>
+<h3 id="checkboxgroupcheckbox">CheckboxGroup&amp;Checkbox</h3>
+<pre><code>&lt;el-form-item :label=&quot;item.attr_name&quot;  v-for=&quot;item in  manyTableData&quot; :key=&quot;item.attr_id&quot;&gt;
+                &lt;el-checkbox-group v-model=&quot;item.attr_vals&quot;&gt;
+                  &lt;el-checkbox label=&quot;cb&quot; v-for=&quot;(cb,i) in item.attr_vals&quot; :key=&quot;i&quot;&gt;&lt;/el-checkbox&gt;
+                &lt;/el-checkbox-group&gt;
+            &lt;/el-form-item&gt;
+</code></pre>
+<h3 id="upload">Upload</h3>
+<pre><code>&lt;el-upload
+  class=&quot;upload-demo&quot;
+  action=&quot;https://jsonplaceholder.typicode.com/posts/&quot;
+  :on-preview=&quot;handlePreview&quot;
+  :on-remove=&quot;handleRemove&quot;
+  :file-list=&quot;fileList&quot;
+  list-type=&quot;picture&quot;&gt;
+  &lt;el-button size=&quot;small&quot; type=&quot;primary&quot;&gt;点击上传&lt;/el-button&gt;
+  &lt;div slot=&quot;tip&quot; class=&quot;el-upload__tip&quot;&gt;只能上传jpg/png文件，且不超过500kb&lt;/div&gt;
+&lt;/el-upload&gt;
+upload组件没有用到axios
+:headers图片上传组件的请求头对象
+</code></pre>
+<h2 id="过滤器">过滤器</h2>
+<pre><code>Vue.filter('dateFormat', function(originVal) {
+  const dt = new Date(originVal)
+
+  const y = dt.getFullYear()
+  const m = (dt.getMonth() + 1 + '').padStart(2, '0')
+  const d = (dt.getDate() + '').padStart(2, '0')
+
+  const hh = (dt.getHours() + '').padStart(2, '0')
+  const mm = (dt.getMinutes() + '').padStart(2, '0')
+  const ss = (dt.getSeconds() + '').padStart(2, '0')
+
+  return `${y}-${m}-${d} ${hh}:${mm}:${ss}`
+})
+
+</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[css高级用法]]></title>
         <id>https://yanyecarr.github.io//post/css-gao-ji-yong-fa</id>
@@ -2547,7 +2914,7 @@ color: pink!important;<br>
 </tr>
 </tbody>
 </table>
-<p><img src="media/good.png" />小技巧：</p>
+<p>小技巧：</p>
 <pre><code>平时我们很少给文字加斜体，反而喜欢给斜体标签（em，i）改为普通模式。
 </code></pre>
 <h2 id="15-font综合设置字体样式-重点">1.5 font:综合设置字体样式 (重点)</h2>
@@ -2797,7 +3164,7 @@ line-height: 24px;
 <li>通过开发人员工具小指针工具，查找页面元素</li>
 <li>左侧是html页面结构，右侧是css样式</li>
 </ul>
-<p><img src="media/good.png" />小技巧：</p>
+<p>小技巧：</p>
 <ol>
 <li>ctrl+滚轮 可以 放大开发者工具代码大小。</li>
 <li>左边是HTML元素结构   右边是CSS样式。</li>
@@ -3679,8 +4046,8 @@ ps:  这些地方用表格，你会觉得生活还是那么美好。。。。忍
 </ol>
 <p><strong>重点掌握点：</strong></p>
 <ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-2860124"><label class="task-list-item-label" for="task-item-2860124"> 请说出 链接标签那个属性是必须要写的？  href</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-3194928"><label class="task-list-item-label" for="task-item-3194928"> 请说出 如何新窗口打开这个一个链接网页的？ target=“_blank”</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-4191711"><label class="task-list-item-label" for="task-item-4191711"> 请说出 链接标签那个属性是必须要写的？  href</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-5278757"><label class="task-list-item-label" for="task-item-5278757"> 请说出 如何新窗口打开这个一个链接网页的？ target=“_blank”</label></li>
 </ul>
 <h2 id="16-注释标签">1.6 注释标签</h2>
 <p>在HTML中还有一种特殊的标签——注释标签。如果需要在HTML文档中添加一些便于阅读和理解但又不需要显示在页面中的注释文字，就需要使用注释标签。</p>
@@ -3754,221 +4121,6 @@ ps:  这些地方用表格，你会觉得生活还是那么美好。。。。忍
 <p>“D:\web\img\logo.gif”，或完整的网络地址，例如“http://www..cn/images/logo.gif”。</p>
 <p><strong>注意：</strong></p>
 <p>绝对路径用的较少，我们理解下就可以了。  但是要注意，它的写法 特别是符号  \  并不是 相对路径的   /</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Elasticsearch与部署]]></title>
-        <id>https://yanyecarr.github.io//post/elasticsearch-yu-bu-shu</id>
-        <link href="https://yanyecarr.github.io//post/elasticsearch-yu-bu-shu">
-        </link>
-        <updated>2020-04-04T16:04:49.000Z</updated>
-        <content type="html"><![CDATA[<h2 id="1es定义">1.ES定义</h2>
-<blockquote>
-<p>ES=elaticsearch简写， Elasticsearch是一个开源的高扩展的分布式全文检索引擎，它可以近乎实时的存储、检索数据；本身扩展性很好，可以扩展到上百台服务器，处理PB级别的数据。
-Elasticsearch也使用Java开发并使用Lucene作为其核心来实现所有索引和搜索的功能，但是它的目的是通过简单的RESTful API来隐藏Lucene的复杂性，从而让全文搜索变得简单。</p>
-</blockquote>
-<h2 id="2lucene与es关系">2.Lucene与ES关系</h2>
-<blockquote>
-<p>1）Lucene只是一个库。想要使用它，你必须使用Java来作为开发语言并将其直接集成到你的应用中，更糟糕的是，Lucene非常复杂，你需要深入了解检索的相关知识来理解它是如何工作的。</p>
-<p>2）Elasticsearch也使用Java开发并使用Lucene作为其核心来实现所有索引和搜索的功能，但是它的目的是通过简单的RESTful API来隐藏Lucene的复杂性，从而让全文搜索变得简单。</p>
-</blockquote>
-<h2 id="3-es主要解决问题">3 ES主要解决问题</h2>
-<pre><code>1）检索相关数据； 
-2）返回统计结果； 
-3）速度要快。
-</code></pre>
-<h2 id="4es核心概念">4.ES核心概念</h2>
-<pre><code>1）Cluster：集群。
-ES可以作为一个独立的单个搜索服务器。不过，为了处理大型数据集，实现容错和高可用性，ES可以运行在许多互相合作的服务器上。这些服务器的集合称为集群。
-
-2）Node：节点。
-形成集群的每个服务器称为节点。
-
-3）Shard：分片。
-当有大量的文档时，由于内存的限制、磁盘处理能力不足、无法足够快的响应客户端的请求等，一个节点可能不够。这种情况下，数据可以分为较小的分片。每个分片放到不同的服务器上。 
-当你查询的索引分布在多个分片上时，ES会把查询发送给每个相关的分片，并将结果组合在一起，而应用程序并不知道分片的存在。即：这个过程对用户来说是透明的。
-
-4）Replia：副本。
-为提高查询吞吐量或实现高可用性，可以使用分片副本。 
-副本是一个分片的精确复制，每个分片可以有零个或多个副本。ES中可以有许多相同的分片，其中之一被选择更改索引操作，这种特殊的分片称为主分片。 
-当主分片丢失时，如：该分片所在的数据不可用时，集群将副本提升为新的主分片。
-
-5）全文检索。
-全文检索就是对一篇文章进行索引，可以根据关键字搜索，类似于mysql里的like语句。 
-全文索引就是把内容根据词的意义进行分词，然后分别创建索引，例如”你们的激情是因为什么事情来的” 可能会被分词成：“你们“，”激情“，“什么事情“，”来“ 等token，这样当你搜索“你们” 或者 “激情” 都会把这句搜出来。
-</code></pre>
-<h2 id="6es数据架构的主要概念与关系数据库mysql对比">6.ES数据架构的主要概念（与关系数据库Mysql对比）</h2>
-<p><img src="https://yanyecarr.github.io//post-images/1586064437483.png" alt=""></p>
-<pre><code>（1）关系型数据库中的数据库（DataBase），等价于ES中的索引（Index） 
-（2）一个数据库下面有N张表（Table），等价于1个索引Index下面有N多类型（Type）， 
-（3）一个数据库表（Table）下的数据由多行（ROW）多列（column，属性）组成，等价于1个Type由多个文档（Document）和多Field组成。 
-（4）在一个关系型数据库里面，schema定义了表、每个表的字段，还有表和字段之间的关系。 与之对应的，在ES中：Mapping定义索引下的Type的字段处理规则，即索引如何建立、索引类型、是否保存原始索引JSON文档、是否压缩原始JSON文档、是否需要分词处理、如何进行分词处理等。 
-（5）在数据库中的增insert、删delete、改update、查search操作等价于ES中的增PUT/POST、删Delete、改_update、查GET. 
-</code></pre>
-<h2 id="7es部署">7.ES部署</h2>
-<h3 id="1环境准备">1.环境准备</h3>
-<h4 id="11安装jdk">1.1安装jdk</h4>
-<pre><code>两种方式：
-1.命令安装:
-1)查询要安装的jdk版本 yum -y list java* 
-2) yum install -y java-1.8.0-openjdk.x86_64 3)java -version 查看是否安装 ps:默认安装到usr/lib/jvm下
-2.手动安装:
-1)先去官网下载jdk
-2)上传到服务器 
-3）解压 jdktar -zxvf jdk-8u211-linux-x64.tar.gz（jdk-8..这个是刚下载的jdk名称） 
-4）配置环境变量：vim /etc/profile 最下面添加如下环境变量
-export JAVA_HOME=/DATA/jdk/jdk1.8.0_211  -- 解压缩的路径
-export CLASSPATH=$:CLASSPATH:$JAVA_HOME/lib/ 
-export PATH=$PATH:$JAVA_HOME/bin
-5）刷新环境变量命令:source /etc/profile 
-6）java -version 查看是否安装
-</code></pre>
-<h4 id="21-安装elasticsearch">2.1 安装elasticsearch</h4>
-<ul>
-<li>
-<p>下载安装包
-官网地址：https://www.elastic.co/</p>
-</li>
-<li>
-<p>解压安装包
-tar -zxvf elasticsearch-7.7.1.tar.gz -C /export/servers(解压缩地址)</p>
-</li>
-<li>
-<p>重命名安装目录
-mv elasticsearch-7.7.1 elasticsearch</p>
-</li>
-<li>
-<p>修改配置文件
-cd elasticsearch中的config文件夹中 修改elasticsearch.yml文件</p>
-<pre><code>#配置es的集群名称，默认是elasticsearch，es会自动发现在同一网段下的es，如果在同一网段下有多个集群，就可以用这个属性来区分不同的集群。
-cluster.name: my-es
-#节点名称
-node.name: node-1
-#设置索引数据的存储路径
-path.data: /usr/local/elasticsearch/data
-#设置日志的存储路径
-path.logs: /usr/local/elasticsearch/logs
-#设置当前的ip地址,通过指定相同网段的其他节点会加入该集群中
-network.host: 0.0.0.0
-#设置对外服务的http端口
-http.port: 9200
-#设置集群中master节点的初始列表，可以通过这些节点来自动发现新加入集群的节点
-discovery.zen.ping.unicast.hosts: [&quot;127.0.0.1&quot;,&quot;10.10.10.34:9200&quot;]
-</code></pre>
-<p>注：</p>
-</li>
-</ul>
-<p>1、补齐必要的目录</p>
-<p>mkdir -p /usr/local/elasticsearch/data</p>
-<p>mkdir -p /usr/local/elasticsearch/logs   (目录可能已经存在，需先确定清楚)</p>
-<p>​		2、network.host: 0.0.0.0</p>
-<p>修改Elasticsearch的配置，使其支持外网访问。在浏览器中，访问http://xxxx:9200/（xxxx是运行elasticsearch的服务器的ip地址）即可。否则这可以在本机使用。</p>
-<h3 id="2解决报错">2.解决报错</h3>
-<p>1.地址已在使用</p>
-<p><img src="https://yanyecarr.github.io//post-images/1586016607915.png" alt=""></p>
-<p>解决方法：</p>
-<p>netstat -alnp | grep 9200</p>
-<p><img src="https://yanyecarr.github.io//post-images/1586016618723.png" alt="">
-kill -9 10220</p>
-<p>2.在<a href="https://www.baidu.com/s?wd=root&amp;tn=24004469_oem_dg&amp;rsv_dl=gh_pl_sl_csd">root</a>用户下启动时报错</p>
-<p>因为安全问题elasticsearch 不让用root用户直接运行，所以要创建新用户。</p>
-<p>具体操作如下:
-　　useradd testuser
-　　passwd testuser</p>
-<p>chown -R testuser:testuser 解压缩路径</p>
-<p>3.[1]: max file descriptors [4096] for elasticsearch process is too low, increase to at least [65535]</p>
-<p>原因：Elasticsearch使用大量文件描述符或文件句柄。用完文件描述符可能是灾难性的，最有可能导致数据丢失。确保将运行Elasticsearch的用户的打开文件描述符数量限制增加到65,536或更高</p>
-<p>vi /etc/security/limits.conf</p>
-<p><img src="https://yanyecarr.github.io//post-images/1586064563841.png" alt="">
-4.[2]: max virtual memory areas vm.max_map_count [65530] is too low, increase to at least [262144]</p>
-<p>vi /etc/sysctl.conf</p>
-<p><img src="https://yanyecarr.github.io//post-images/1586064543751.png" alt=""></p>
-<p>sysctl -p</p>
-<p>[3]: the default discovery settings are unsuitable for production use; at least one of [discovery.seed_hosts, discovery.seed_providers, cluster.initial_master_nodes] must be configured</p>
-<p>解决</p>
-<p>vi elasticsearch.yml</p>
-<p>取消注释</p>
-<p>cluster.initial_master_nodes: [&quot;node-1&quot;, &quot;node-2&quot;]</p>
-<p><img src="https://yanyecarr.github.io//post-images/1586016690073.png" alt=""></p>
-<h3 id="3安装分词ik和head">3.安装分词IK和Head</h3>
-<h4 id="安装分词ik">安装分词ik</h4>
-<pre><code>下载地址：https://github.com/medcl/elasticsearch-analysis-ik/releases
-
-将文件复制到ES /plugin/ik 下面
-</code></pre>
-<h4 id="安装head">安装Head</h4>
-<blockquote>
-<pre><code>elasticsearch-head是一个界面化的集群操作和管理工具，可以对集群进行傻瓜式操作。你可以通过插件把它集成到es（首选方式）,也可以安装成一个独立webapp。
-es-head主要有三个方面的操作：
-　　a、显示集群的拓扑,并且能够执行索引和节点级别操作
-　　b、搜索接口能够查询集群中原始json或表格格式的检索数据
-　　c、能够快速访问并显示集群的状态
-有一个输入窗口,允许任意调用RESTful API。这个接口包含几个选项,可以组合在一起以产生有趣的结果; 
-请求方法(get、put、post、delete),查询json数据,节点和路径
-　　　　　　支持JSON验证器
-　　　　　　支持重复请求计时器
-　　　　　　支持使用javascript表达式变换结果
-收集结果的能力随着时间的推移(使用定时器),或比较的结果，能力图表转换后的结果在一个简单的条形图(包括时间序列)
-</code></pre>
-</blockquote>
-<pre><code>1. https://github.com/mobz/elasticsearch-head 下载解压
-2.安装node.js
-3. cd /path/to/elasticsearch-head
-npm install -g grunt-cli
-npm install
-grunt server
-4. http://localhost:9100/
-5. 运行es
-</code></pre>
-<p>unzip解压失败</p>
-<p>安装7zip</p>
-<p>官网地址：http://www.7-zip.org/download.html</p>
-<pre><code>tar -jxvf p7zip_16.02_src_all.tar.bz2
-cd p7zip_16.02
-make &amp;&amp; make install
-</code></pre>
-<ul>
-<li>如果执行make命令时，提示安装g++的话，请执行 <code>yum install gcc-c++</code></li>
-<li>出现 tar (child): bzip2: Cannot exec: No such file or directory，请安装<code>yum install bzip2 -y</code></li>
-</ul>
-<p>出现以下信息，即为安装完毕</p>
-<pre><code>./install.sh /usr/local/bin /usr/local/lib/p7zip /usr/local/man /usr/local/share/doc/p7zip 
-
-installing /usr/local/bin/7za
-
-installing /usr/local/man/man1/7z.1
-
-installing /usr/local/man/man1/7za.1
-
-installing /usr/local/man/man1/7zr.1
-
-installing /usr/local/share/doc/p7zip/README
-
-installing /usr/local/share/doc/p7zip/ChangeLog
-
-installing HTML help in /usr/local/share/doc/p7zip/DOC
-</code></pre>
-<p>7z命令的使用
-解压缩7z文件</p>
-<p>1参数含义：</p>
-<ul>
-<li>x 代表解压缩文件，并且是按原始目录树解压（还有个参数 e 也是解压缩文件，但其会将所有文件都解压到根下，而不是自己原有的文件夹下）</li>
-<li>test.zip 是当前目录下的压缩文件，这里用做测试文件</li>
-<li>-r 表示递归解压缩所有的子文件夹</li>
-<li>-o 是指定解压到的目录，-o后是没有空格的，直接接目录(-o./ 为当前目录)</li>
-</ul>
-<p>压缩文件/文件夹</p>
-<pre><code>7za a -t7z -r test.7z /opt/test/*
-</code></pre>
-<p>1参数含义：</p>
-<ul>
-<li>a 代表添加文件/文件夹到压缩包</li>
-<li>-t 是指定压缩类型，这里定为7z，可不指定，因为7za默认压缩类型就是7z</li>
-<li>-r 表示递归所有的子文件夹</li>
-<li>test.7z 是压缩好后的压缩包名</li>
-<li>/opt/test/* 是压缩目录
-注意：7za不仅仅支持.7z压缩格式，还支持.zip.、tar、.bz2等压缩类型</li>
-</ul>
 ]]></content>
     </entry>
 </feed>
